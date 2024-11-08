@@ -7,7 +7,17 @@ import { Component } from '@angular/core';
   templateUrl: './contact-section.component.html',
   styleUrl: './contact-section.component.css'
 })
+
+
 export class ContactSectionComponent {
-  phone: '+1 (514) XXX-XXXX' | undefined;
+  
+  contact = {
+    name:'Osmany Terry Diaz',
+    telefone:'+1 (514) XXX-XXXX',
+    adresse:'YnamsoBureau',
+    email:'moimeme@ynamso.com',
+    website:'www.domainname.com'
+
+  }
 
 }

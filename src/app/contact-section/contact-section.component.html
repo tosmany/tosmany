@@ -1,41 +1,79 @@
 <section class="contact section">
-  <div class="continer">
+  <div class="container">
     <div class="row">
       <div class="section-title padd-15">
         <h2>Contact Me</h2>
       </div>
     </div>
-    <h3 class="contact-title">Avez-vous des quesion?</h3>
-    <h4 class="contact-sub-title">JE SUIS À L'ÉCOUTE!</h4>
+    <h3 class="contact-title padd-15">Avez-vous des quesion?</h3>
+    <h4 class="contact-sub-title padd-15">JE SUIS TOUJOURS À L'AFFÛT!</h4>
     <div class="row">
       <!-- ==== Contact info item start ===== -->
       <div class="contact-info-item padd-15">
         <div class="icon"><i class="fa fa-phone"></i></div>
-        <h4>Appele moi au</h4>
-        <p>+1 (514) XXX-XXXX </p>
+        <h4>Téléphone</h4>
+        <p>{{ contact.telefone }}</p>
       </div>
       <!-- ==== Contact info item end ===== -->
        <!-- ==== Contact info item start ===== -->
       <div class="contact-info-item padd-15">
-        <div class="icon"><i class="fa fa-marker-alt"></i></div>
+        <div class="icon"><i class="fa fa-map-marker-alt"></i></div>
         <h4>Bureau</h4>
-        <p>Ynamsobureau </p>
+        <p> {{contact.adresse}} </p>
       </div>
       <!-- ==== Contact info item end ===== -->
        <!-- ==== Contact info item start ===== -->
       <div class="contact-info-item padd-15">
         <div class="icon"><i class="fa fa-envelope"></i></div>
-        <h4>Email</h4>
-        <p>moimene&#64;ynamso.com </p>
+        <h4>Courriel</h4>
+        <p> {{contact.email}} </p>
       </div>
       <!-- ==== Contact info item end ===== -->
        <!-- ==== Contact info item start ===== -->
       <div class="contact-info-item padd-15">
         <div class="icon"><i class="fa fa-globe-americas"></i></div>
-        <h4>Website</h4>
-        <p>www.domain.com</p>
+        <h4>Site Web</h4>
+        <p> {{contact.website}} </p>
       </div>
       <!-- ==== Contact info item end ===== -->
     </div>
+    <h3 class="contact-title padd-15">ENVOYEZ-MOI UN COURREIL</h3>
+    <h4 class="contact-sub-title padd-15">JE RÉPONDS RAPIDEMENT AUX MESSAGES!</h4>
+    <!-- ===== CONTACT FORM ====  -->
+    <div class="row">
+      <div class="contact-form padd-15">
+        <div class="row">
+          <div class="form-item col-6 padd-15">
+            <div class="form-group">
+              <input type="text" text="" class="form-control" placeholder="Nom">
+            </div>
+          </div>
+          <div class="form-item col-6 padd-15">
+            <div class="form-group">
+              <input type="email" text="" class="form-control" placeholder="Courriel">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-item col-12 padd-15">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Sujet">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-item col-12 padd-15">
+            <div class="form-group">
+              <textarea name="" class="form-control" id="" placeholder="Message"></textarea>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-item col-12 padd-15">
+            <button type="submit" class="btn"> Envoyer </button>
+          </div>
+        </div>
+      </div>
+    </div> 
   </div>
 </section>
