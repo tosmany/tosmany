@@ -6,11 +6,12 @@ import { AboutSectionEndComponent } from "../about-section-end/about-section-end
 import { ServiceComponent } from '../service/service.component';
 import { ServiceEndComponent } from '../service-end/service-end.component';
 import { PortoFolioSectionComponent } from '../porto-folio-section/porto-folio-section.component';
+import { ContactSectionComponent } from '../contact-section/contact-section.component';
 
 @Component({
   selector: 'app-main-content',
   standalone: true,
-  imports: [HomeSectionStartComponent, HomeSectionEndComponent, AboutSectionStartComponent, AboutSectionEndComponent, ServiceComponent, ServiceEndComponent, PortoFolioSectionComponent],
+  imports: [HomeSectionStartComponent, HomeSectionEndComponent, AboutSectionStartComponent, AboutSectionEndComponent, ServiceComponent, ServiceEndComponent, PortoFolioSectionComponent, ContactSectionComponent],
   templateUrl: './main-content.component.html',
   styleUrl: './main-content.component.css'
 })

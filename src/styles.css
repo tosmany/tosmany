@@ -622,3 +622,20 @@ h3.my-profession {
   width: 100%;
   display: block;
 }
+/*CONTACT*/
+.contact-title{
+  color: var(--skin-color);
+  text-align: center;
+  font-size: 25px;
+  margin-bottom: 20px;
+}
+.contact-sub-title{
+  color: var(--text-black-900);
+  text-align: center;
+  font-size: 15px;
+}
+/* .contact .contact-heading{
+  flex: 0 0 100%;
+  max-width: 100%;
+  margin-bottom: 40px;
+} */
