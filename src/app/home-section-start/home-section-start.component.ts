@@ -15,6 +15,6 @@ export class HomeSectionStartComponent {
     description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tenetur nam beatae provident, voluptatem quibusdam deserunt ipsum accusantium laborum nisi veniam doloremque facere velit consequatur quod dolor inventore. Hic, voluptatibus adipisci?',
     buttonText: 'En savoir plus',
     buttonUrl: '/about',
-    image:'../images/avatar_portfolio.jpg'
+    image:'../images/osmany.jpg'
   }
 }
