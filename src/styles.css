@@ -110,7 +110,7 @@ ul {
 }
 
 .home-info .btn,
-.buttons .btn, 
+.buttons .btn,
 .row .btn {
   font-size: 16px;
   font-weight: 500;
@@ -647,7 +647,7 @@ h3.my-profession {
 }
 .contact .contact-info-item .icon .fa{
   font-size: 25px;
-  color: var(--skin-color); 
+  color: var(--skin-color);
 }
 .contact .contact-info-item h4{
   font-size: 18px;
@@ -666,7 +666,7 @@ h3.my-profession {
 .contact .contact-form{
   flex: 0 0 100%;
   max-width: 100%;
-} 
+}
 .contact .contact-form .col-6{
   flex: 0 0 50%;
   max-width: 50%;
@@ -699,6 +699,7 @@ h3.my-profession {
   height: 50px;
   padding: 0 50px;
 }
+/*REPONSIVE */
 @media(max-width:1199px) {
   .aside
   {
@@ -708,19 +709,41 @@ h3.my-profession {
   {
     padding-left: 0;
   }
-  .about .about-content .personal-info .info-item p span{
+  .about-content .personal-info .info-item p span
+  {
     display: block;
     margin-left: 0;
   }
 }
-@media (max-width) {
-  .home .home-info
+@media (max-width:991px) {
+  .contact .contact-info-item,
+  .portfolio .portfolio-item,
+  .service .service-item
+  {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+  .home-info
   {
     flex: 0 0 100%;
     max-width: 100%;
   }
-  .home .home-img
+  .home-img
   {
     display: none;
+  }
+}
+@media (max-width:767px) {
+  .contact .contact-form .col-6,
+  .contact .contact-info-item,
+  .portfolio .portfolio-item,
+  .service .service-item,
+  .about-content .experience,
+  .about-content .education,
+  .about-content .skills-item,
+  .about-content .personal-info
+  {
+    flex: 0 0 100%;
+    max-width: 100%;
   }
 }
