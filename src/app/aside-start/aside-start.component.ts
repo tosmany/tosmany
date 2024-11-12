@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { RouterLink, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-aside-start',
   standalone: true,
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './aside-start.component.html',
   styleUrl: './aside-start.component.css'
 })
