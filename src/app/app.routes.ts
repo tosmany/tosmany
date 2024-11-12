@@ -7,8 +7,9 @@ import { ContactSectionComponent } from './contact-section/contact-section.compo
 
 
 export const routes: Routes = [
-    { path: '', component: HomeSectionStartComponent  },
-    { path: 'home', component:  HomeSectionStartComponent },
+    { path: 'home', 
+      component: HomeSectionStartComponent 
+    },  // Redirección predeterminada
     { path: 'about', component: AboutSectionStartComponent },
     { path: 'service', component: ServiceComponent },
     { path: 'portfolio', component: PortoFolioSectionComponent },

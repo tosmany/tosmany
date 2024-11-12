@@ -1,15 +1,28 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterOutlet, RouterModule, RouterLink } from '@angular/router';
 import { MainContainerComponent } from './main-container/main-container.component';
-import { MainContainerEndComponent } from './main-container-end/main-container-end.component';
 import { AsideStartComponent } from "./aside-start/aside-start.component";
-import { AsideEndComponent } from "./aside-end/aside-end.component";
 import { StyleSwitcherComponent } from './style-switcher/style-switcher.component';
+import { ContactSectionComponent } from './contact-section/contact-section.component';
+import { HomeSectionStartComponent } from './home-section-start/home-section-start.component';
+import { PortoFolioSectionComponent } from './porto-folio-section/porto-folio-section.component';
+import { ServiceComponent } from './service/service.component';
+import { MainContentComponent } from './main-content/main-content.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, MainContainerComponent, MainContainerEndComponent, AsideStartComponent, AsideEndComponent, StyleSwitcherComponent],
+  imports: [
+    RouterOutlet, 
+    RouterModule,
+    RouterLink,
+    MainContainerComponent, 
+    AsideStartComponent, 
+    StyleSwitcherComponent,
+    MainContentComponent, ServiceComponent,
+    ContactSectionComponent, 
+    HomeSectionStartComponent,
+    PortoFolioSectionComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
