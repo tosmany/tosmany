@@ -4,6 +4,7 @@ import { AboutSectionStartComponent } from './about-section-start/about-section-
 import { ServiceComponent } from './service/service.component';
 import { PortoFolioSectionComponent } from './porto-folio-section/porto-folio-section.component';
 import { ContactSectionComponent } from './contact-section/contact-section.component';
+import { PdfComponentComponent } from './pdf-component/pdf-component.component';
 
 
 export const routes: Routes = [
@@ -13,5 +14,6 @@ export const routes: Routes = [
     { path: 'about', component: AboutSectionStartComponent },
     { path: 'service', component: ServiceComponent },
     { path: 'portfolio', component: PortoFolioSectionComponent },
-    { path: 'contact', component: ContactSectionComponent  }
+    { path: 'contact', component: ContactSectionComponent  },
+    { path: 'cv', component: PdfComponentComponent}
 ];
