@@ -8,6 +8,7 @@
   --bg-black-50: #e8dfec;
   --text-black-900: #302e4d;
   --text-black-700: #504e70;
+  --tex-pdf-600:#696969;
 
 }
 
@@ -353,17 +354,23 @@ h3.my-profession {
 .pdf-section {
   display: flex;
   max-height: 100vh;
-  align-items: center;
+  margin-left: 20%;
+  margin-right: 20%;
 }
 .pdf-section p li:not(h5){
   font-size: 22px;
+  color: var(--tex-pdf-600);
 }
-.pdf-section .coordonness {
+.competences-block li{
+  color: var(--tex-pdf-600);
+}
+.pdf-section .coordonnees,
+.formation-block .line {
   line-height: .5;
   margin-bottom: 40px;
 }
 
-.pdf-section .coordonness h5 {
+.pdf-section .coordonnees h5 {
   list-style: none;
   flex: start;
 }
@@ -373,25 +380,47 @@ h3.my-profession {
   margin-bottom: 10px;
 }
 
-.pdf-section .container {
-  padding-left: 10%;
-  padding-right: 10%;
-  padding-top: 10%;
-  padding-bottom: 10%;
+.pdf-section{
+  padding: 10% 10% 10% 10%;
 
 }
+.row .title{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.row .title h5{
+  margin: 0;
+}
+.formation-block .row .title span,
+.experience-professionnelle .row .title span,
+.engagement-sociaux .row .title span,
+.autre-formation-block .row .title span{
+  margin: 0;
+}
 
-.formation-block {
+.formation-block, 
+.competences-block, 
+.experience-professionnelle, 
+.autre-formation-block {
   margin-top: 20px;
-  line-height: .5;
+  padding-left: 2%;
+  padding-right: 0%;
 }
-
+.experience-professionnelle .compagnie p,
+.autre-formation-block .line span,
+.champ-competences .competences-block .competence h5,
+.formation-block .line p,
+.engagement-sociaux .title p{
+  color: var(--tex-pdf-600);
+  font-weight: 500;
+}
 .formation-block .title {
-  margin-top: 0;
+  margin-bottom: -3px;
 }
 
 .pdf-section hr {
-  max-width: 85%;
+  max-width: 100%;
   border: 2px solid #000000;
 
 }
@@ -404,25 +433,33 @@ h3.my-profession {
   list-style: circle;
 
 }
+.experience-professionnelle .taches,
+.engagement-sociaux .taches{
+  margin-top: -15px;
+}
 
 .formation-block .title h5,
-.experience-professionnelle .title h5 {
+.experience-professionnelle .title h5,
+.autre-formation-block .title h5,
+.autre-formation-block .line span,
+.engagement-sociaux .title h5 {
   align-items: start;
   max-width: 60%;
   font-weight: 600;
   position: relative;
 }
-
-.formation-block .title p,
-.experience-professionnelle .title span {
+.formation-block .title span,
+.experience-professionnelle .title span,
+.autre-formation-block .title span,
+.engagement-sociaux .title span {
   align-items: end;
   max-width: 40%;
   text-align: center;
   font-weight: 600;
   position: relative;
   font-size: 18px;
+  margin-left: 0;
 }
-
 /*ABOUT*/
 .about-content {
   flex: 0 0 100%;
