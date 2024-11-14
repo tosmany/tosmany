@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { PdfComponentComponent } from '../pdf-component/pdf-component.component';
 
 @Component({
   selector: 'app-about-section-start',

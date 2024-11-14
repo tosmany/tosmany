@@ -7,11 +7,12 @@ import { ServiceComponent } from '../service/service.component';
 import { ServiceEndComponent } from '../service-end/service-end.component';
 import { PortoFolioSectionComponent } from '../porto-folio-section/porto-folio-section.component';
 import { ContactSectionComponent } from '../contact-section/contact-section.component';
+import { PdfComponentComponent } from "../pdf-component/pdf-component.component";
 
 @Component({
   selector: 'app-main-content',
   standalone: true,
-  imports: [HomeSectionStartComponent, HomeSectionEndComponent, AboutSectionStartComponent, AboutSectionEndComponent, ServiceComponent, ServiceEndComponent, PortoFolioSectionComponent, ContactSectionComponent],
+  imports: [HomeSectionStartComponent, HomeSectionEndComponent, AboutSectionStartComponent, AboutSectionEndComponent, ServiceComponent, ServiceEndComponent, PortoFolioSectionComponent, ContactSectionComponent, PdfComponentComponent],
   templateUrl: './main-content.component.html',
   styleUrl: './main-content.component.css'
 })

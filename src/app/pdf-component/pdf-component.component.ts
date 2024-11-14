@@ -46,6 +46,7 @@ interface EngagementSocial {
   role: string;
   formationDetails: { centre: string; ville: string }[];
   annee: string;
+  taches: string[];
 }
 
 @Component({
@@ -56,7 +57,7 @@ interface EngagementSocial {
   styleUrls: ['./pdf-component.component.css']
 })
 export class PdfComponentComponent {
-  
+
   // Tipamos las propiedades del componente con las interfaces
   userCoordonnees: UserCoordonnees = {
     "name": "Terry Diaz, Osmany",
@@ -79,7 +80,7 @@ export class PdfComponentComponent {
     "Capacité d’analyse",
     "Habileté à travailler en équipe et de forme autonome",
     "Exploiter un système de gestion de base de données",
-    { 
+    {
       "Connaissances informatiques": [
         "Langage: Java, JavaScript, HTML, CSS, PHP, C#, C++",
         "Technologies : Angular, Spring, Vue, Express, Node, .Net, Git, Jira, Figma, CISCO",
@@ -96,7 +97,7 @@ export class PdfComponentComponent {
       "diplome": "AEC Développement de sites Web transactionnels",
       "formationDetails": [
         {
-          "formation": "intensive (975 heures)",
+          "formation": "Formation intensive (975 heures)",
           "centre": "Collège Ahuntsic",
           "ville": "Montréal"
         }
@@ -107,7 +108,7 @@ export class PdfComponentComponent {
       "diplome": "AEC Programmation objet orientée et technologies WEB",
       "formationDetails": [
         {
-          "formation": "continue (1410 heures)",
+          "formation": "Formation continue (1410 heures)",
           "centre": "Collège Rosemont",
           "ville": "Montréal"
         }
@@ -118,7 +119,7 @@ export class PdfComponentComponent {
       "diplome": "DEC Gestion de réseaux",
       "formationDetails": [
         {
-          "formation": "régulière (1450 heures)",
+          "formation": "Formation régulière (1450 heures)",
           "centre": "Collège De Maisonneuve",
           "ville": "Montréal"
         }
@@ -126,10 +127,10 @@ export class PdfComponentComponent {
       "annee": "En cours"
     },
     {
-      "diplome": "AEC Programmation objet orientée et technologies WEB",
+      "diplome": "DEP Support technique",
       "formationDetails": [
         {
-          "formation": "intensive (975 heures)",
+          "formation": "Formation intensive (975 heures)",
           "centre": "Collège Herzing",
           "ville": "Montréal"
         }
@@ -197,14 +198,19 @@ export class PdfComponentComponent {
 
   userEngementsSociaux: EngagementSocial[] = [
     {
-      "role": "Bénévolat",
-      "formationDetails": [
+      role: "Bénévolat",
+      formationDetails: [
         {
-          "centre": "Centre de soir Massé",
-          "ville": "Montréal"
+          centre: "Centre de soir Massé",
+          ville: "Montréal"
         }
       ],
-      "annee": "2016 - 2017"
+      annee: "2016 - 2017",
+      taches: [
+        "Rétablir, configurer et optimiser un poste informatique",
+        "Installer des outils de nettoyage et de sécurité sur les stations de travail",
+        "Donner des formations bases sur l'explotaition de poste informatique"
+      ]
     }
   ];
 

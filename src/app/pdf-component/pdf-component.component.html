@@ -1,53 +1,120 @@
-<section class="px-5">
+<section class="pdf-section">
+  <div class="container">
     <div class="col-4 coordonness">
-        <h5>{{userCoordonnees.name}}</h5>
-        <p>{{userCoordonnees.adresse}}</p>
-        <p>{{userCoordonnees.ville}}&nbsp;({{userCoordonnees.province}})&nbsp;{{userCoordonnees.CP}}</p>
-        <p>{{userCoordonnees.telephone}}</p>
-        <p><i>{{userCoordonnees.email}}</i></p>
+      <h5>{{userCoordonnees.name}}</h5>
+      <p>{{userCoordonnees.adresse}}</p>
+      <p>{{userCoordonnees.ville}}&nbsp;({{userCoordonnees.province}})&nbsp;{{userCoordonnees.CP}}</p>
+      <p>{{userCoordonnees.telephone}}</p>
+      <p><i>{{userCoordonnees.email}}</i></p>
     </div>
-    <div class="col champ-competences">
-        <h4>Champs de competétences</h4>
-        <hr>
-        <ul>
-            <li *ngFor="let item of userChampCompetences">
-              <!-- Si el item es de tipo Competence y tiene 'Connaissances informatiques' -->
-              <ng-container *ngIf="isCompetence(item)">
-                <h5>Connaissances informatiques:</h5>
-                <ul>
-                  <li *ngFor="let competence of item['Connaissances informatiques']">
-                    {{ competence }}
-                  </li>
-                </ul>
-              </ng-container>
-          
-              <!-- Si el item no es una competencia, lo mostramos como texto -->
-              <ng-container *ngIf="!isCompetence(item)">
-                <p>{{ item }}</p>
-              </ng-container>
-            </li>
-          </ul>  
+    <div class="col champ-competences pb-4">
+      <h4>Champs de competétences</h4>
+      <hr>
+      <ul>
+        <li *ngFor="let item of userChampCompetences" class="competence">
+          <!-- Si el item es de tipo Competence y tiene 'Connaissances informatiques' -->
+          <ng-container *ngIf="isCompetence(item)">
+            <h5>Connaissances informatiques:</h5>
+            <ul>
+              <li *ngFor="let competence of item['Connaissances informatiques']">
+                {{ competence }}
+              </li>
+            </ul>
+          </ng-container>
+
+          <!-- Si el item no es una competencia, lo mostramos como texto -->
+          <ng-container *ngIf="!isCompetence(item)">
+            <p>{{ item }}</p>
+          </ng-container>
+        </li>
+      </ul>
     </div>
-    <div class="col formation-container">
-        <h4>Formation acedémique</h4>
+    <div class="col formation-container pb-4">
+      <h4>Formation acedémique</h4>
+      <hr>
+      <div class="formation-block" *ngFor="let formation of userFormationAcademique">
+        <!-- Primera línea con formación y año -->
+        <div class="row title">
+          <h5>{{ formation.diplome }}</h5> <!-- Título: diplome -->
+          <p>{{ formation.annee }}</p><!-- Année: année de la formation -->
+        </div>
+
+        <!-- Segunda línea con formación y año -->
+        <div class="line">
+          <p>{{ formation.formationDetails[0].formation }}</p>
+
+        </div>
+
+        <!-- Tercera línea con centro y ciudad -->
+        <div class="line">
+          <p>{{ formation.formationDetails[0].centre }}, {{ formation.formationDetails[0].ville }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col experience-professionnelle pb-4">
+      <!-- Première ligne -->
+      <div class="row title">
+        <h4>Expérience professionnelle</h4>
         <hr>
-        <div class="formation-block" *ngFor="let formation of userFormationAcademique">
-            <!-- Primera línea con formación y año -->
-            <div class="row d-flex">
-                <h5>{{ formation.diplome }}</h5> <!-- Título: diplome -->
-                <p><strong>{{ formation.annee }}</strong></p>
+      </div>
+      <ul>
+        <li *ngFor="let experience of userExperienceProfessionelles">
+          <div>
+            <!-- Première ligne -->
+             <div class="row title">
+               <h5>{{ experience.poste }} </h5>
+               <span>{{ experience.annee }}</span>
+             </div>
+             <!-- Deuxième ligne -->
+            <p>{{ experience.compagnie || 'Non précisé' }}</p>
+            <ul>
+              <!-- Troisième ligne -->
+              <li *ngFor="let detail of experience.detailDuPoste">{{ detail }}</li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="autre-formation pb-4">
+      <h4>Autres formations</h4>
+      <hr>
+      <!-- Iteramos sobre el arreglo 'userAutresFormation' -->
+      <ul>
+        <li *ngFor="let formation of userAutresFormation">
+          <div>
+            <div class="row title">
+              <!-- Première ligne -->
+              <h5>{{ formation.diplome }}</h5>
+              <p>{{ formation.annee }}</p>
             </div>
-            
-            <!-- Segunda línea con formación y año -->
-            <div class="line">
-              <p>{{ formation.formationDetails[0].formation }}</p>
-              
-            </div>
-        
-            <!-- Tercera línea con centro y ciudad -->
-            <div class="line">
-              <p>{{ formation.formationDetails[0].centre }}, {{ formation.formationDetails[0].ville }}</p>
+            <div *ngFor="let detail of formation.formationDetails" class="row d-flex">
+              <!-- Deuxième ligne -->
+              <p> {{ detail.centre }}, {{ detail.ville }}</p>
             </div>
           </div>
+        </li>
+      </ul>
     </div>
+    <div class="engagement-sociaux pb-4">
+      <!-- Première ligne -->
+      <h4>Engagements sociaux</h4>
+      <hr>
+       <!-- Deuxième ligne: iteramos sobre el arreglo de 'userEngementsSociaux' -->
+      <ul>
+        <li *ngFor="let engagement of userEngementsSociaux">
+          <div>
+            <h5>{{ engagement.role }} - <span>{{ engagement.annee }}</span></h5>
+            <div *ngFor="let formation of engagement.formationDetails">
+                <p> {{ formation.centre }},  {{ formation.ville }}</p>
+                <!-- Troisième ligne -->
+                <ul>
+                  <li *ngFor="let tache of engagement.taches">{{ tache }}</li>
+                </ul>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <p>Références offertes sur demande</p>
+  </div>
 </section>
