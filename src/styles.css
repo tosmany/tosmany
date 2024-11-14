@@ -8,7 +8,7 @@
   --bg-black-50: #e8dfec;
   --text-black-900: #302e4d;
   --text-black-700: #504e70;
-  --tex-pdf-600:#696969;
+  --tex-pdf-600: #696969;
 
 }
 
@@ -357,13 +357,31 @@ h3.my-profession {
   margin-left: 20%;
   margin-right: 20%;
 }
-.pdf-section p li:not(h5){
+
+.pdf-section p li:not(h5) {
   font-size: 22px;
   color: var(--tex-pdf-600);
 }
-.competences-block li{
+
+.competences-block li {
   color: var(--tex-pdf-600);
 }
+
+.competences-block h5 {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.competence h5 {
+  list-style-type: none;
+  /* Elimina cualquier viñeta antes de <h5> */
+  margin: 0;
+  /* Elimina márgenes extra */
+  padding: 0;
+  /* Elimina rellenos extra */
+}
+
 .pdf-section .coordonnees,
 .formation-block .line {
   line-height: .5;
@@ -380,41 +398,46 @@ h3.my-profession {
   margin-bottom: 10px;
 }
 
-.pdf-section{
+.pdf-section {
   padding: 10% 10% 10% 10%;
 
 }
-.row .title{
+
+.row .title {
   display: flex;
   justify-content: space-between;
   width: 100%;
 }
-.row .title h5{
-  margin: 0;
-}
-.formation-block .row .title span,
-.experience-professionnelle .row .title span,
-.engagement-sociaux .row .title span,
-.autre-formation-block .row .title span{
+
+.row .title h5 {
   margin: 0;
 }
 
-.formation-block, 
-.competences-block, 
-.experience-professionnelle, 
+.formation-block .row .title span,
+.experience-professionnelle .row .title span,
+.engagement-sociaux .row .title span,
+.autre-formation-block .row .title span {
+  margin: 0;
+}
+
+.formation-block,
+.competences-block,
+.experience-professionnelle,
 .autre-formation-block {
   margin-top: 20px;
   padding-left: 2%;
   padding-right: 0%;
 }
+
 .experience-professionnelle .compagnie p,
 .autre-formation-block .line span,
 .champ-competences .competences-block .competence h5,
 .formation-block .line p,
-.engagement-sociaux .title p{
+.engagement-sociaux .title p {
   color: var(--tex-pdf-600);
   font-weight: 500;
 }
+
 .formation-block .title {
   margin-bottom: -3px;
 }
@@ -433,8 +456,9 @@ h3.my-profession {
   list-style: circle;
 
 }
+
 .experience-professionnelle .taches,
-.engagement-sociaux .taches{
+.engagement-sociaux .taches {
   margin-top: -15px;
 }
 
@@ -444,22 +468,25 @@ h3.my-profession {
 .autre-formation-block .line span,
 .engagement-sociaux .title h5 {
   align-items: start;
-  max-width: 60%;
+  max-width: 75%;
   font-weight: 600;
   position: relative;
+  text-align: left;
 }
+
 .formation-block .title span,
 .experience-professionnelle .title span,
 .autre-formation-block .title span,
 .engagement-sociaux .title span {
   align-items: end;
-  max-width: 40%;
-  text-align: center;
+  max-width: 25%;
+  text-align: right;
   font-weight: 600;
   position: relative;
   font-size: 18px;
   margin-left: 0;
 }
+
 /*ABOUT*/
 .about-content {
   flex: 0 0 100%;

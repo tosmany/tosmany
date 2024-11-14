@@ -24,7 +24,7 @@
                 </li>
               </ul>
             </ng-container>
-  
+
             <!-- Si el item no es una competencia, lo mostramos como texto -->
             <ng-container *ngIf="!isCompetence(item)">
               <p>{{ item }}</p>
@@ -74,7 +74,7 @@
               <li *ngFor="let detail of experience.detailDuPoste">{{ detail }}</li>
             </ul>
           </div>
-        </div>   
+        </div>
       </div>
     </div>
     <!--Bloc Autres formations-->
@@ -83,25 +83,25 @@
       <hr>
       <div class="autre-formation-block" *ngFor="let formation of userAutresFormation">
         <!-- Première ligne -->
-        <div class="row title">    
+        <div class="row title">
           <h5>{{ formation.diplome }}</h5>
           <span>{{ formation.annee }}</span>
         </div>
         <!-- Deuxième ligne -->
          <div class="line">
-          
+
             <span *ngFor="let detail of formation.formationDetails">{{ detail.centre}}, {{detail.ville}}</span>
-          
+
          </div>
-      </div>   
+      </div>
     </div>
     <!--Bloc Engagements sociaux-->
     <div class="col engagement-sociaux pb-4">
-      
+
       <h4>Engagements sociaux</h4>
       <hr>
       <!-- Première ligne -->
-       
+
       <ul>
         <li *ngFor="let engagement of userEngementsSociaux">
           <div>
@@ -115,14 +115,14 @@
                <div class="title">
                 <p> {{ formation.centre }},  {{ formation.ville }}</p>
                </div>
-                
+
                 <!-- Quatrième ligne -->
                 <div class="taches">
                   <ul>
                     <li *ngFor="let tache of engagement.taches">{{ tache }}</li>
                   </ul>
                 </div>
-                
+
             </div>
           </div>
         </li>
