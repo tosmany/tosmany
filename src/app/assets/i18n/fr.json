@@ -1,0 +1,68 @@
+{
+   "about-section-end":{},
+   "about-section-start":{
+        "About Us":"Qui je suis",
+        "Programmer analyst":"Programmeur analyste",
+        "Web designer":"Développeur web",
+        "Web programmer":"Programmeur web",
+        "Birthday":"Anniversaire",
+        "Email":"Courriel",
+        "Phone":"Téléphone",
+        "Site Web":"Page Web",
+        "Degree":"Évaluation",
+        "Feelnace":"État",
+        "Download CV":"Télécharger CV",
+        "Hire Me":"Engarger",
+        "Education":"Formation",
+        "Experience":"Expérience"
+
+   }, 
+   "aside-end":{},
+   "aside-start":{
+        "Home":"Accueil",
+        "About":"À propos",
+        "Services":"Services",
+        "Portfolio":"Portfolio",
+        "Contact":"Contact"
+   },
+   "contact-section":{
+        "Contact Me":"Contact Moi",
+        "Have questions?":"Avez-vous des questions?",
+        "LISNTENING ANY TIME!":"JE SUIS TOUJOURS À L'AFFÛT!",
+        "Phone":"Téléphone",
+        "Office":"Bureau",
+        "Email":"Courriel",
+        "Web Site":"Site Web",
+        "SEND ME AN EMAIL":"ENVOYEZ-MOI UN COURRIEL",
+        "QUICKLY ANSWER TO MESSAGES!": "JE RÉPONDS RAPIDEMENT AUX MESSAGES!",
+        "Name":"Nom",
+        "Subjet":"Sujet",
+        "Message":"Message",
+        "Send":"Envoyer"
+   },
+   "home-section-end":{},
+   "home-section-start":{
+        "Hi, ma name is":"Salut, mon nom est",
+        "I'm":"Je suis",
+        "Programmer analyst":"Programmeur analyste",
+        "Web designer":"Développeur web",
+        "Web programmer":"Programmeur web",
+        "More":"En savoir plus"
+   },
+   "main-container-end":{},
+   "main-container":{},
+   "main-content":{},
+   "main-content-end":{},
+   "pdf-component":{
+        
+       
+   },
+   "porto-folio-section":{},
+   "service-end":{},
+   "service":{
+        "Service":"Services",
+        "Web Design":"Design Web"
+
+   },
+   "style-switcher":{}
+}
