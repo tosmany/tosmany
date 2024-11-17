@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { jsPDF } from 'jspdf';
 
 // Definimos las interfaces aquí
 interface UserCoordonnees {
@@ -217,5 +218,50 @@ export class PdfComponentComponent {
   // Método para identificar si el item es un objeto Competence
   isCompetence(item: any): item is Competence {
     return item && item["Connaissances informatiques"] !== undefined;
+  }
+
+  /* CONSTRUCTION DU PDF */
+  data = Array.from({ length: 50 }, (_, i) => `item ${i + 1}`);
+  date = new Date().toLocaleDateString();
+
+  public generatePDF(): void {
+    const pdf = new jsPDF('p','mm','letter');
+    const pageWidth = pdf.internal.pageSize.getWidth();
+    const pageHeight = pdf.internal.pageSize.getHeight();
+    const logoWidth = 20;
+    const itemsPerge = 20;
+    let currentY = 40;
+
+    const nom = this.userCoordonnees.name;
+    const datePDF = this.date;
+
+    //Placement du logo
+    /*
+    const addLogo = () =>{
+      const logoUrl = '../../assets/images/logo.png';
+      const marginRight = 10;
+      const xPos = pageWidth - logoWidth - marginRight;
+      pdf.addImage(logoUrl, 'png', xPos, 10, logoWidth, 20);
+    }
+     */
+
+    // Ajout du entete (Coordonnées)
+    const addTableHeader = () =>{
+      pdf.setFont('Helvetica', 'bold');
+      pdf.setFontSize(20);
+      pdf.text(this.userCoordonnees.name, 10, 35);
+      pdf.setFont('Helvetica', 'normal');
+      pdf.setFontSize(10);
+      pdf.text(this.userCoordonnees.adresse, 10, 40);
+      pdf.text(this.userCoordonnees.ville + ','+ this.userCoordonnees.province + ','+ this.userCoordonnees.CP, 10, 45);
+      pdf.text(this.userCoordonnees.telephone, 10, 50);
+      pdf.setFont('Italic', 'italic');
+      pdf.text(this.userCoordonnees.email, 10, 55);
+
+      currentY = 55; //Separateur de bloques
+
+
+    }
+
   }
 }
