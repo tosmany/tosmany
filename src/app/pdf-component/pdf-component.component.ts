@@ -230,7 +230,7 @@ export class PdfComponentComponent {
     const pageHeight = pdf.internal.pageSize.getHeight();
     const logoWidth = 20;
     const itemsPerge = 20;
-    let currentY = 40;
+    let currentY = 40; // Donde comienza la primera sección (desplazamiento inicial)
 
     const nom = this.userCoordonnees.name;
     const datePDF = this.date;
@@ -246,22 +246,186 @@ export class PdfComponentComponent {
      */
 
     // Ajout du entete (Coordonnées)
-    const addTableHeader = () =>{
+    
+    const addCoordonnees = () =>{
+      /*Nom */
       pdf.setFont('Helvetica', 'bold');
       pdf.setFontSize(20);
-      pdf.text(this.userCoordonnees.name, 10, 35);
+      pdf.text(this.userCoordonnees.name, 10, currentY);
+      currentY += 8;
+      /** Adresse*/
       pdf.setFont('Helvetica', 'normal');
       pdf.setFontSize(10);
-      pdf.text(this.userCoordonnees.adresse, 10, 40);
+      pdf.text(this.userCoordonnees.adresse, 10, currentY);
+      currentY += 6;
+      /*Ville, Province, CP */
       pdf.text(this.userCoordonnees.ville + ','+ this.userCoordonnees.province + ','+ this.userCoordonnees.CP, 10, 45);
-      pdf.text(this.userCoordonnees.telephone, 10, 50);
+      pdf.text(this.userCoordonnees.telephone, 10, currentY);
+      currentY += 6;
+      /*Email */
       pdf.setFont('Italic', 'italic');
-      pdf.text(this.userCoordonnees.email, 10, 55);
-
-      currentY = 55; //Separateur de bloques
-
-
+      pdf.text(this.userCoordonnees.email, 10, currentY);
+      currentY += 10; // Espace après coordonnées
     }
 
+    //Add ligne separatrice
+    const addLineSeparator = (yPosition: number) => {
+      pdf.setDrawColor(214,211,204,255);  // Color negro
+      pdf.setLineWidth(0.5);  // Grosor de la línea
+      pdf.line(10, yPosition, pageWidth - 10, yPosition);  // Línea horizontal
+    }
+
+    //Add compétences
+    const addCompetences = () => {
+      pdf.setFont('Helvetica', 'bold');
+      pdf.setFontSize(14);
+      pdf.text("Copétences", 10, currentY);
+      currentY += 10;
+      addLineSeparator(currentY); //Ligne separatrice
+      currentY += 5;
+
+      pdf.setFont('Helvetica', 'normal');
+      pdf.setFontSize(12);
+
+       //Iterarar les compétences
+       this.userChampCompetences.forEach((competence, index) =>{
+        if (typeof competence === 'string') {
+          pdf.text(`-${competence}`, 10, currentY);
+        } else {
+          pdf.text(`-${competence.description}:`, 10, currentY);
+          currentY += 6;
+          competence["Connaissances informatiques"]?.forEach( info => {
+            pdf.text(` -${info}`, 15, currentY);
+            currentY +=6;
+          });
+        }
+        currentY += 8;
+      });
+    }
+
+    //Add formation academique
+    const addFormationAcademique = () => {
+      pdf.setFont('Helvetica', 'bold');
+      pdf.setFontSize(14);
+      pdf.text("Formation Académique", 10, currentY);
+      currentY += 10;
+      addLineSeparator(currentY); //Ligne separatrice
+      currentY += 5;
+
+      pdf.setFont('Helvetica', 'normal');
+      pdf.setFontSize(12);
+
+      this.userFormationAcademique.forEach(formation => {
+        pdf.text(`Diplôme: ${formation.diplome}`, 10, currentY);
+        currentY += 6;
+        formation.formationDetails.forEach(detail => {
+          pdf.text(`  Formation: ${detail.formation}`, 15, currentY);
+          pdf.text(`  Centre: ${detail.centre}`, 15, currentY + 6);
+          pdf.text(`  Ville: ${detail.ville}`, 15, currentY + 12);
+        });
+        pdf.text(`Année: ${formation.annee}`, 10, currentY + 18);
+        currentY += 24;
+      });
+    }
+
+    //Add expérience professionnelle
+    const addExperienceProfessionnelle = () => {
+      pdf.setFont('Helvetica', 'bold');
+      pdf.setFontSize(14);
+      pdf.text("Expérience Professionnelle", 10, currentY);
+      currentY += 10;
+      addLineSeparator(currentY); //Ligne separatrice
+      currentY += 5; 
+
+      pdf.setFont('Helvetica', 'normal');
+      pdf.setFontSize(12);
+
+      this.userExperienceProfessionelles.forEach(exp => {
+        pdf.text(`Poste: ${exp.poste}`, 10, currentY);
+        currentY += 6;
+        pdf.text(`Compagnie: ${exp.compagnie}`, 10, currentY);
+        currentY += 6;
+        exp.detailDuPoste.forEach(detail => {
+          pdf.text(`  - ${detail}`, 15, currentY);
+          currentY += 6;
+        });
+        pdf.text(`Année: ${exp.annee}`, 10, currentY + 10);
+        currentY += 18;
+      });
+    }
+
+    //Add Autres formations
+    const addAutreFormation = () => {
+      pdf.setFont('Helvetica', 'bold');
+      pdf.setFontSize(14);
+      pdf.text("Autres Formations", 10, currentY);
+      currentY += 10;
+      addLineSeparator(currentY); //Ligne separatrice
+      currentY += 5; 
+
+
+      pdf.setFont('Helvetica', 'normal');
+      pdf.setFontSize(12);
+
+      this.userAutresFormation.forEach(formation => {
+        pdf.text(`Diplôme: ${formation.diplome}`, 10, currentY);
+        currentY += 6;
+        formation.formationDetails.forEach(detail => {
+          pdf.text(`  Centre: ${detail.centre}`, 15, currentY);
+          pdf.text(`  Ville: ${detail.ville}`, 15, currentY + 6);
+        });
+        pdf.text(`Année: ${formation.annee}`, 10, currentY + 12);
+        currentY += 18;
+      });
+    }
+
+    //Add Angegements soicaux
+    const addEngagementSocial = () => {
+      pdf.setFont('Helvetica', 'bold');
+      pdf.setFontSize(14);
+      pdf.text("Engagement Social", 10, currentY);
+      currentY += 10;
+      addLineSeparator(currentY); //Ligne separatrice
+      currentY += 5;
+
+
+      pdf.setFont('Helvetica', 'normal');
+      pdf.setFontSize(12);
+
+      this.userEngementsSociaux.forEach(engagement => {
+        pdf.text(`Rôle: ${engagement.role}`, 10, currentY);
+        currentY += 6;
+        engagement.formationDetails.forEach(detail => {
+          pdf.text(`  Centre: ${detail.centre}`, 15, currentY);
+          pdf.text(`  Ville: ${detail.ville}`, 15, currentY + 6);
+        });
+        pdf.text(`Année: ${engagement.annee}`, 10, currentY + 12);
+        currentY += 18;
+
+        engagement.taches.forEach(tache => {
+          pdf.text(`  - ${tache}`, 15, currentY);
+          currentY += 6;
+        });
+      });
+    }
+
+    //Add date
+    const addDate = () => {
+      pdf.setFont('Helvetica', 'normal');
+      pdf.setFontSize(10);
+      pdf.text(`Date: ${new Date().toLocaleDateString()}`, pageWidth - 40, pageHeight - 20, { align: 'right' });
+    }
+
+    // Construir le PDF
+    addCoordonnees();
+    addCompetences();
+    addFormationAcademique();
+    addExperienceProfessionnelle();
+    addAutreFormation();
+    addEngagementSocial();
+    addDate();
+
+    // Générer el PDF
+    pdf.save('cv.pdf');
   }
 }
