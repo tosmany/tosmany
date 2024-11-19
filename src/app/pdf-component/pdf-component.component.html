@@ -1,5 +1,5 @@
 <section class="pdf-section">
-  <div class="container">
+  <div class="container" id="pdf_content">
     <!--Bloc Coordonnées-->
     <div class="col-4 coordonnees">
       <h5>{{userCoordonnees.name}}</h5>
@@ -135,9 +135,8 @@
    </div>
    <div class="row my-5" >
     <div class="buttons padd-15">
-      <a href="" class="btn"><i class="fa-solid fa-arrow-down me-3"></i>Télécharger</a>
+      <a (click)="generatePDF()" class="btn"><i class="fa-solid fa-arrow-down me-3"></i>Télécharger</a>
     </div>
   </div>
   </div>
-
 </section>

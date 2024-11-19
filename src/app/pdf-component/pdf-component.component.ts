@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { jsPDF } from 'jspdf';
+import * as jSPDF  from 'jspdf';
+import html2canvas from 'html2canvas';
 
 // Definimos las interfaces aquí
 interface UserCoordonnees {
@@ -220,7 +222,7 @@ export class PdfComponentComponent {
     return item && item["Connaissances informatiques"] !== undefined;
   }
 
-  /* CONSTRUCTION DU PDF */
+  /* CONSTRUCTION DU PDF AVEC JSPDF */
   data = Array.from({ length: 50 }, (_, i) => `item ${i + 1}`);
   date = new Date().toLocaleDateString();
 
@@ -230,7 +232,35 @@ export class PdfComponentComponent {
     const pageHeight = pdf.internal.pageSize.getHeight();
     const logoWidth = 20;
     const itemsPerge = 20;
-    let currentY = 40; // Donde comienza la primera sección (desplazamiento inicial)
+    const marginX = 20;
+    const titre =()=>{
+      pdf.setFont('Helvetica', 'bold');
+      pdf.setFontSize(16);
+    }
+    const subTitre = () =>{
+      pdf.setFont('Helvetica', 'semibold');
+      pdf.setFontSize(14);
+    }
+    const subTitreDeux = () =>{
+      pdf.setFont('Helvetica', 'semibold');
+      pdf.setFontSize(12);
+    }
+    const normalText = () => {
+      pdf.setFont('Helvetica', 'normal');
+      pdf.setFontSize(10);
+    }
+     const textDescription = () =>{
+      pdf.setFont('Helvetica', 'normal');
+      pdf.setFontSize(12);
+     }
+     const sautPage = () =>{
+      // Verificar si el espacio restante en la página es insuficiente
+      if (currentY > pageHeight - 40) { // Si se acerca al final de la página
+        pdf.addPage();  // Agregar una nueva página
+        currentY = 10;  // Resetear el valor de currentY para comenzar desde la parte superior
+      }
+     }
+    let currentY =10; // Donde comienza la primera sección (desplazamiento inicial)
 
     const nom = this.userCoordonnees.name;
     const datePDF = this.date;
@@ -249,22 +279,23 @@ export class PdfComponentComponent {
     
     const addCoordonnees = () =>{
       /*Nom */
-      pdf.setFont('Helvetica', 'bold');
-      pdf.setFontSize(20);
-      pdf.text(this.userCoordonnees.name, 10, currentY);
-      currentY += 8;
+      titre();
+      pdf.text(this.userCoordonnees.name, marginX, currentY);
+      currentY += 6;
       /** Adresse*/
-      pdf.setFont('Helvetica', 'normal');
-      pdf.setFontSize(10);
-      pdf.text(this.userCoordonnees.adresse, 10, currentY);
+      normalText();
+      pdf.text(this.userCoordonnees.adresse, marginX, currentY);
       currentY += 6;
       /*Ville, Province, CP */
-      pdf.text(this.userCoordonnees.ville + ','+ this.userCoordonnees.province + ','+ this.userCoordonnees.CP, 10, 45);
-      pdf.text(this.userCoordonnees.telephone, 10, currentY);
+      normalText();
+      pdf.text(this.userCoordonnees.ville + ','+ this.userCoordonnees.province + ','+ this.userCoordonnees.CP, marginX, currentY);
+      currentY += 6;
+      /*Téléphone */
+      pdf.text(this.userCoordonnees.telephone, marginX, currentY);
       currentY += 6;
       /*Email */
       pdf.setFont('Italic', 'italic');
-      pdf.text(this.userCoordonnees.email, 10, currentY);
+      pdf.text(this.userCoordonnees.email, marginX, currentY);
       currentY += 10; // Espace après coordonnées
     }
 
@@ -272,30 +303,29 @@ export class PdfComponentComponent {
     const addLineSeparator = (yPosition: number) => {
       pdf.setDrawColor(214,211,204,255);  // Color negro
       pdf.setLineWidth(0.5);  // Grosor de la línea
-      pdf.line(10, yPosition, pageWidth - 10, yPosition);  // Línea horizontal
+      pdf.line(marginX, yPosition, pageWidth - marginX, yPosition);  // Línea horizontal
     }
 
     //Add compétences
     const addCompetences = () => {
-      pdf.setFont('Helvetica', 'bold');
-      pdf.setFontSize(14);
-      pdf.text("Copétences", 10, currentY);
-      currentY += 10;
+      titre();
+      pdf.text("Compétences", marginX, currentY);
+      currentY += 3;
       addLineSeparator(currentY); //Ligne separatrice
-      currentY += 5;
+      currentY += 10;
 
-      pdf.setFont('Helvetica', 'normal');
-      pdf.setFontSize(12);
-
-       //Iterarar les compétences
+      textDescription();
+       //Iterarar les compétences 
        this.userChampCompetences.forEach((competence, index) =>{
         if (typeof competence === 'string') {
-          pdf.text(`-${competence}`, 10, currentY);
+          pdf.text(`° ${competence}`, marginX, currentY);
         } else {
-          pdf.text(`-${competence.description}:`, 10, currentY);
+          pdf.text(`${competence.description}:`, marginX, currentY);
           currentY += 6;
+          subTitre();
           competence["Connaissances informatiques"]?.forEach( info => {
-            pdf.text(` -${info}`, 15, currentY);
+            textDescription();
+            pdf.text(` ° ${info}`, marginX + 2, currentY);
             currentY +=6;
           });
         }
@@ -305,115 +335,111 @@ export class PdfComponentComponent {
 
     //Add formation academique
     const addFormationAcademique = () => {
-      pdf.setFont('Helvetica', 'bold');
-      pdf.setFontSize(14);
-      pdf.text("Formation Académique", 10, currentY);
-      currentY += 10;
+      titre();
+      pdf.text("Formation Académique", marginX, currentY);
+      currentY += 3;
       addLineSeparator(currentY); //Ligne separatrice
-      currentY += 5;
-
-      pdf.setFont('Helvetica', 'normal');
-      pdf.setFontSize(12);
-
+      currentY += 10;
       this.userFormationAcademique.forEach(formation => {
-        pdf.text(`Diplôme: ${formation.diplome}`, 10, currentY);
+        /* Diplôme - duration */
+        subTitre();
+        pdf.text(`${formation.diplome}`, marginX + 3, currentY);
+        pdf.text(`${formation.annee}`, pageWidth - marginX, currentY, {align:'right'});
         currentY += 6;
+        subTitreDeux();
         formation.formationDetails.forEach(detail => {
-          pdf.text(`  Formation: ${detail.formation}`, 15, currentY);
-          pdf.text(`  Centre: ${detail.centre}`, 15, currentY + 6);
-          pdf.text(`  Ville: ${detail.ville}`, 15, currentY + 12);
+          pdf.text(` ${detail.formation}`, marginX + 2, currentY);
+          pdf.text(` ${detail.centre}, ${detail.ville}`, marginX + 3, currentY + 6);
         });
-        pdf.text(`Année: ${formation.annee}`, 10, currentY + 18);
-        currentY += 24;
+        currentY += 16;
       });
+      // Verificar si el espacio restante en la página es insuficiente
+      sautPage();
     }
 
     //Add expérience professionnelle
     const addExperienceProfessionnelle = () => {
-      pdf.setFont('Helvetica', 'bold');
-      pdf.setFontSize(14);
-      pdf.text("Expérience Professionnelle", 10, currentY);
-      currentY += 10;
+      titre();
+      pdf.text("Expérience Professionnelle", marginX, currentY);
+      currentY += 3;
       addLineSeparator(currentY); //Ligne separatrice
-      currentY += 5; 
-
-      pdf.setFont('Helvetica', 'normal');
-      pdf.setFontSize(12);
-
+      currentY += 10; 
+      
       this.userExperienceProfessionelles.forEach(exp => {
-        pdf.text(`Poste: ${exp.poste}`, 10, currentY);
+        subTitre();
+        pdf.text(`${exp.poste}`, marginX + 3, currentY);
+        pdf.text(`${exp.annee}`, pageWidth - marginX, currentY, {align:'right'});
         currentY += 6;
-        pdf.text(`Compagnie: ${exp.compagnie}`, 10, currentY);
-        currentY += 6;
+        subTitreDeux();
+        pdf.text(`${exp.compagnie}`, marginX + 3, currentY);
+        currentY += 5;
+        normalText();
         exp.detailDuPoste.forEach(detail => {
-          pdf.text(`  - ${detail}`, 15, currentY);
+          pdf.text(`${detail}`, marginX + 7, currentY);
           currentY += 6;
         });
-        pdf.text(`Année: ${exp.annee}`, 10, currentY + 10);
-        currentY += 18;
+        currentY += 6;
       });
+      
     }
 
     //Add Autres formations
     const addAutreFormation = () => {
-      pdf.setFont('Helvetica', 'bold');
-      pdf.setFontSize(14);
-      pdf.text("Autres Formations", 10, currentY);
-      currentY += 10;
+      titre()
+      pdf.text("Autres Formations", marginX, currentY);
+      currentY += 3;
       addLineSeparator(currentY); //Ligne separatrice
-      currentY += 5; 
-
-
-      pdf.setFont('Helvetica', 'normal');
-      pdf.setFontSize(12);
-
+      currentY += 10; 
+      
       this.userAutresFormation.forEach(formation => {
-        pdf.text(`Diplôme: ${formation.diplome}`, 10, currentY);
+        subTitre();
+        pdf.text(` ${formation.diplome}`, marginX + 3 , currentY);
+        pdf.text(` ${formation.annee}`, pageWidth - marginX, currentY, {align:'right'});
         currentY += 6;
+        
         formation.formationDetails.forEach(detail => {
-          pdf.text(`  Centre: ${detail.centre}`, 15, currentY);
-          pdf.text(`  Ville: ${detail.ville}`, 15, currentY + 6);
+          subTitreDeux();
+          pdf.text(`${detail.centre}, ${detail.ville}`, marginX + 4, currentY);
+          currentY += 6;
         });
-        pdf.text(`Année: ${formation.annee}`, 10, currentY + 12);
-        currentY += 18;
+        currentY += 6;
       });
     }
 
-    //Add Angegements soicaux
+    //Add Angagements soicaux
     const addEngagementSocial = () => {
-      pdf.setFont('Helvetica', 'bold');
-      pdf.setFontSize(14);
-      pdf.text("Engagement Social", 10, currentY);
-      currentY += 10;
+      titre();
+      pdf.text("Engagement Social", marginX, currentY);
+      currentY += 3;
       addLineSeparator(currentY); //Ligne separatrice
-      currentY += 5;
-
-
-      pdf.setFont('Helvetica', 'normal');
-      pdf.setFontSize(12);
-
+      currentY += 10;
+      
       this.userEngementsSociaux.forEach(engagement => {
-        pdf.text(`Rôle: ${engagement.role}`, 10, currentY);
+        subTitre();
+        pdf.text(`${engagement.role}`, marginX + 3, currentY);
+        pdf.text(`${engagement.annee}`, pageWidth - marginX, currentY, {align:'right'});
         currentY += 6;
+        
         engagement.formationDetails.forEach(detail => {
-          pdf.text(`  Centre: ${detail.centre}`, 15, currentY);
-          pdf.text(`  Ville: ${detail.ville}`, 15, currentY + 6);
+          subTitreDeux();
+          pdf.text(` ${detail.centre}, ${detail.ville}`, marginX + 3, currentY);
+          currentY += 6;
         });
-        pdf.text(`Année: ${engagement.annee}`, 10, currentY + 12);
-        currentY += 18;
-
+        
         engagement.taches.forEach(tache => {
-          pdf.text(`  - ${tache}`, 15, currentY);
+          normalText();
+          pdf.text(`${tache}`, marginX + 7, currentY);
           currentY += 6;
         });
       });
+      sautPage();
     }
-
+    
     //Add date
     const addDate = () => {
       pdf.setFont('Helvetica', 'normal');
       pdf.setFontSize(10);
-      pdf.text(`Date: ${new Date().toLocaleDateString()}`, pageWidth - 40, pageHeight - 20, { align: 'right' });
+      pdf.text(`Date: ${new Date().toLocaleDateString()}`, pageWidth - marginX, pageHeight - 20, { align: 'right' });
     }
 
     // Construir le PDF
@@ -427,5 +453,19 @@ export class PdfComponentComponent {
 
     // Générer el PDF
     pdf.save('cv.pdf');
+    
+  }
+  /* CONSTRUCTION DU PDF AVEC HTML2CANVAS */
+  exportPDF(){
+    const data = document.getElementById('pdf_content');
+        html2canvas(data!).then(canvas => {
+            const imgWidth = 208;
+            const imgHeight = canvas.height * imgWidth / canvas.width;
+            const contentDataURL = canvas.toDataURL('image/png');
+            const pdf = new jSPDF.jsPDF('p', 'mm', 'a4'); // A4 size page of PDF
+            const position = 20;
+            pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight);
+            pdf.save('exported-file.pdf'); // Save the generated PDF
+        });
   }
 }
