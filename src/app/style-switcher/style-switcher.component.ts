@@ -34,7 +34,7 @@ export class StyleSwitcherComponent implements AfterViewInit {
   ) {}
 
   ngAfterViewInit(): void {
-    
+
     // Solo realizamos las operaciones relacionadas con el DOM si estamos en el navegador
     if (isPlatformBrowser(this.platformId)) {
       // Al cargar el componente, verificamos si el tema oscuro está activo
@@ -96,5 +96,6 @@ export class StyleSwitcherComponent implements AfterViewInit {
       this.renderer.addClass(icon, 'fa-moon');
     }
   }
- 
+ /* Set language to show */
+ setActiveLanguage(){}
 }
