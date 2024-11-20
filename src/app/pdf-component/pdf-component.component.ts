@@ -264,7 +264,7 @@ export class PdfComponentComponent {
         currentY = 10;  // Resetear el valor de currentY para comenzar desde la parte superior
       }
      }
-    let currentY =10; // Donde comienza la primera sección (desplazamiento inicial)
+    let currentY =15; // Donde comienza la primera sección (desplazamiento inicial)
 
     const nom = this.userCoordonnees.name;
     const datePDF = this.date;
@@ -280,23 +280,23 @@ export class PdfComponentComponent {
      */
 
     // Ajout du entete (Coordonnées)
-    
+
     const addCoordonnees = () =>{
       /*Nom */
       titre();
       pdf.text(this.userCoordonnees.name, marginX, currentY);
-      currentY += 6;
+      currentY += 4;
       /** Adresse*/
       normalText();
       pdf.text(this.userCoordonnees.adresse, marginX, currentY);
-      currentY += 6;
+      currentY += 4;
       /*Ville, Province, CP */
       normalText();
       pdf.text(this.userCoordonnees.ville + ','+ this.userCoordonnees.province + ','+ this.userCoordonnees.CP, marginX, currentY);
-      currentY += 6;
+      currentY += 4;
       /*Téléphone */
       pdf.text(this.userCoordonnees.telephone, marginX, currentY);
-      currentY += 6;
+      currentY += 4;
       /*Email */
       pdf.setFont('Italic', 'italic');
       pdf.text(this.userCoordonnees.email, marginX, currentY);
@@ -316,10 +316,10 @@ export class PdfComponentComponent {
       pdf.text("Compétences", marginX, currentY);
       currentY += 3;
       addLineSeparator(currentY); //Ligne separatrice
-      currentY += 10;
+      currentY += 8;
 
       textDescription();
-       //Iterarar les compétences 
+       //Iterarar les compétences
        this.userChampCompetences.forEach((competence, index) =>{
         if (typeof competence === 'string') {
           pdf.text(`° ${competence}`, marginX, currentY);
@@ -393,7 +393,7 @@ export class PdfComponentComponent {
       pdf.text("Formation Académique", marginX, currentY);
       currentY += 3;
       addLineSeparator(currentY); //Ligne separatrice
-      currentY += 10;
+      currentY += 8;
       this.userFormationAcademique.forEach(formation => {
         /* Diplôme - duration */
         subTitre();
@@ -417,8 +417,8 @@ export class PdfComponentComponent {
       pdf.text("Expérience Professionnelle", marginX, currentY);
       currentY += 3;
       addLineSeparator(currentY); //Ligne separatrice
-      currentY += 10; 
-      
+      currentY += 8;
+
       this.userExperienceProfessionelles.forEach(exp => {
         subTitre();
         pdf.text(`${exp.poste}`, marginX + 3, currentY);
@@ -434,7 +434,7 @@ export class PdfComponentComponent {
         });
         currentY += 6;
       });
-      
+
     }
 
     //Add Autres formations
@@ -443,14 +443,14 @@ export class PdfComponentComponent {
       pdf.text("Autres Formations", marginX, currentY);
       currentY += 3;
       addLineSeparator(currentY); //Ligne separatrice
-      currentY += 10; 
-      
+      currentY += 8;
+
       this.userAutresFormation.forEach(formation => {
         subTitre();
         pdf.text(` ${formation.diplome}`, marginX + 3 , currentY);
         pdf.text(` ${formation.annee}`, pageWidth - marginX, currentY, {align:'right'});
         currentY += 6;
-        
+
         formation.formationDetails.forEach(detail => {
           subTitreDeux();
           pdf.text(`${detail.centre}, ${detail.ville}`, marginX + 4, currentY);
@@ -466,20 +466,20 @@ export class PdfComponentComponent {
       pdf.text("Engagement Social", marginX, currentY);
       currentY += 3;
       addLineSeparator(currentY); //Ligne separatrice
-      currentY += 10;
-      
+      currentY += 8;
+
       this.userEngementsSociaux.forEach(engagement => {
         subTitre();
         pdf.text(`${engagement.role}`, marginX + 3, currentY);
         pdf.text(`${engagement.annee}`, pageWidth - marginX, currentY, {align:'right'});
         currentY += 6;
-        
+
         engagement.formationDetails.forEach(detail => {
           subTitreDeux();
           pdf.text(` ${detail.centre}, ${detail.ville}`, marginX + 2, currentY);
           currentY += 6;
         });
-        
+
         engagement.taches.forEach(tache => {
           normalText();
           pdf.text(`${tache}`, marginX + 7, currentY);
@@ -488,7 +488,7 @@ export class PdfComponentComponent {
       });
       sautPage();
     }
-    
+
     //Add date
     const addDate = () => {
       pdf.setFont('Helvetica', 'normal');
@@ -507,7 +507,7 @@ export class PdfComponentComponent {
 
     // Générer el PDF
     pdf.save('cv.pdf');
-    
+
   }
   /* CONSTRUCTION DU PDF AVEC HTML2CANVAS */
   exportPDF(){
