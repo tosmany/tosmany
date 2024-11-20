@@ -53,11 +53,10 @@ interface EngagementSocial {
 }
 
 @Component({
-  selector: 'app-pdf-component',
-  standalone: true,
-  imports: [CommonModule],
-  templateUrl: './pdf-component.component.html',
-  styleUrls: ['./pdf-component.component.css']
+    selector: 'app-pdf-component',
+    imports: [CommonModule],
+    templateUrl: './pdf-component.component.html',
+    styleUrls: ['./pdf-component.component.css']
 })
 export class PdfComponentComponent {
 
@@ -234,24 +233,29 @@ export class PdfComponentComponent {
     const itemsPerge = 20;
     const marginX = 20;
     const titre =()=>{
-      pdf.setFont('Helvetica', 'bold');
+      pdf.setFont('Helvetica', 'Bold');
       pdf.setFontSize(16);
+      pdf.setTextColor(1, 1, 1);  // Color black
     }
     const subTitre = () =>{
-      pdf.setFont('Helvetica', 'semibold');
+      pdf.setFont('Helvetica', 'Bolder');
       pdf.setFontSize(14);
+      pdf.setTextColor(1, 1, 1);  // Color black
     }
     const subTitreDeux = () =>{
-      pdf.setFont('Helvetica', 'semibold');
+      pdf.setFont('Helvetica', 'Bolder');
       pdf.setFontSize(12);
+      pdf.setTextColor(83, 83, 83);  // Color gris
     }
     const normalText = () => {
-      pdf.setFont('Helvetica', 'normal');
+      pdf.setFont('Helvetica', 'Normal');
       pdf.setFontSize(10);
+      pdf.setTextColor(1, 1, 1);  // Color black
     }
      const textDescription = () =>{
-      pdf.setFont('Helvetica', 'normal');
-      pdf.setFontSize(12);
+      pdf.setFont('Helvetica', 'Normal');
+      pdf.setFontSize(10);
+      pdf.setTextColor(83, 83, 83);  // Color gris
      }
      const sautPage = () =>{
       // Verificar si el espacio restante en la página es insuficiente
@@ -301,13 +305,13 @@ export class PdfComponentComponent {
 
     //Add ligne separatrice
     const addLineSeparator = (yPosition: number) => {
-      pdf.setDrawColor(214,211,204,255);  // Color negro
+      pdf.setDrawColor(83, 83, 83);  // Color gris
       pdf.setLineWidth(0.5);  // Grosor de la línea
       pdf.line(marginX, yPosition, pageWidth - marginX, yPosition);  // Línea horizontal
     }
 
     //Add compétences
-    const addCompetences = () => {
+    /*const addCompetences = () => {
       titre();
       pdf.text("Compétences", marginX, currentY);
       currentY += 3;
@@ -331,7 +335,57 @@ export class PdfComponentComponent {
         }
         currentY += 8;
       });
-    }
+    }*/
+      const addCompetences = () => {
+        titre();
+        pdf.text("Compétences", marginX, currentY);
+        currentY += 3;
+        addLineSeparator(currentY); // Línea separadora
+        currentY += 10;
+      
+        textDescription();
+      
+        // Iterar sobre las competencias
+        this.userChampCompetences.forEach((competence, index) => {
+          if (typeof competence === 'string') {
+            // Para competencias tipo string, ajustamos el texto
+            const competenceLines = pdf.splitTextToSize(`° ${competence}`, pageWidth - marginX * 2); // Dividimos el texto en líneas
+            // La primera línea tendrá la viñeta
+            pdf.text(competenceLines[0], marginX + 4, currentY - 3);  // Escribir la primera línea con la viñeta
+            //currentY += 1;
+      
+            // Las líneas siguientes deben empezar debajo del texto y no debajo de la viñeta
+            for (let i = 1; i < competenceLines.length; i++) {
+              // Eliminamos la viñeta de las líneas siguientes
+              pdf.text(competenceLines[i], marginX + 6, currentY);  // Añadimos una sangría para el resto de líneas
+              currentY += 1;
+            }
+          } else {
+            // Para competencias de tipo objeto, procesar 'Connaissances informatiques'
+            pdf.text(`° ${competence.description}:`, marginX + 4, currentY - 3);
+            currentY += 6;
+            
+            subTitreDeux();
+            competence["Connaissances informatiques"]?.forEach(info => {
+              textDescription();
+              const infoLines = pdf.splitTextToSize(` - ${info}`, pageWidth - marginX * 2); // Dividimos el texto largo
+      
+              // Escribir la primera línea con la viñeta
+              pdf.text(infoLines[0], marginX + 8, currentY);
+              currentY += 6;
+      
+              // Las líneas siguientes deben empezar debajo del texto, no de la viñeta
+              for (let i = 1; i < infoLines.length; i++) {
+                // Eliminamos la viñeta de las líneas siguientes
+                pdf.text(infoLines[i], marginX + 6, currentY); // Sangría a la derecha para las líneas adicionales
+                currentY += 6;
+              }
+            });
+          }
+          currentY += 8;
+        });
+      }
+      
 
     //Add formation academique
     const addFormationAcademique = () => {
@@ -349,7 +403,7 @@ export class PdfComponentComponent {
         subTitreDeux();
         formation.formationDetails.forEach(detail => {
           pdf.text(` ${detail.formation}`, marginX + 2, currentY);
-          pdf.text(` ${detail.centre}, ${detail.ville}`, marginX + 3, currentY + 6);
+          pdf.text(` ${detail.centre}, ${detail.ville}`, marginX + 2, currentY + 6);
         });
         currentY += 16;
       });
@@ -422,7 +476,7 @@ export class PdfComponentComponent {
         
         engagement.formationDetails.forEach(detail => {
           subTitreDeux();
-          pdf.text(` ${detail.centre}, ${detail.ville}`, marginX + 3, currentY);
+          pdf.text(` ${detail.centre}, ${detail.ville}`, marginX + 2, currentY);
           currentY += 6;
         });
         

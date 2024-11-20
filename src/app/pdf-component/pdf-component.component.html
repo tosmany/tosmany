@@ -17,7 +17,7 @@
           <li *ngFor="let item of userChampCompetences" class="competence">
             <!-- Si el item es de tipo Competence y tiene 'Connaissances informatiques' -->
             <ng-container *ngIf="isCompetence(item)">
-              <h5>Connaissances informatiques:</h5>
+              <h5 class="competence-informatique-title">{{ item.description}}</h5><!-- Título que aparece como encabezado -->
               <ul>
                 <li *ngFor="let competence of item['Connaissances informatiques']">
                   {{ competence }}
@@ -96,7 +96,7 @@
       </div>
     </div>
     <!--Bloc Engagements sociaux-->
-    <div class="col engagement-sociaux pb-4">
+    <div class="col engagement-sociaux ">
 
       <h4>Engagements sociaux</h4>
       <hr>
@@ -104,7 +104,7 @@
 
       <ul>
         <li *ngFor="let engagement of userEngementsSociaux">
-          <div>
+          <div style="margin-left: -18px;">
             <div class="row title">
               <!-- Deuxième ligne: iteramos sobre el arreglo de 'userEngementsSociaux' -->
               <h5>{{ engagement.role }}</h5>

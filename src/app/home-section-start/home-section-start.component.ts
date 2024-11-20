@@ -3,11 +3,10 @@ import { isPlatformBrowser } from '@angular/common';
 import Typed from 'typed.js';
 
 @Component({
-  selector: 'app-home-section-start',
-  standalone: true,
-  imports: [],
-  templateUrl: './home-section-start.component.html',
-  styleUrl: './home-section-start.component.css'
+    selector: 'app-home-section-start',
+    imports: [],
+    templateUrl: './home-section-start.component.html',
+    styleUrl: './home-section-start.component.css'
 })
 export class HomeSectionStartComponent {
 

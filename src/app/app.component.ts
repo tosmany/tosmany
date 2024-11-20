@@ -5,15 +5,14 @@ import { StyleSwitcherComponent } from './style-switcher/style-switcher.componen
 
 
 @Component({
-  selector: 'app-root',
-  standalone: true,
-  imports: [
-    RouterOutlet, 
-    MainContainerComponent, 
-    StyleSwitcherComponent,
-  ],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+    selector: 'app-root',
+    imports: [
+        RouterOutlet,
+        MainContainerComponent,
+        StyleSwitcherComponent,
+    ],
+    templateUrl: './app.component.html',
+    styleUrl: './app.component.css'
 })
 export class AppComponent {
   title = 'OsmanyPortfolio';

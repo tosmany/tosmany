@@ -2,11 +2,10 @@ import { Component } from '@angular/core';
 import { PdfComponentComponent } from '../pdf-component/pdf-component.component';
 
 @Component({
-  selector: 'app-about-section-start',
-  standalone: true,
-  imports: [],
-  templateUrl: './about-section-start.component.html',
-  styleUrl: './about-section-start.component.css'
+    selector: 'app-about-section-start',
+    imports: [],
+    templateUrl: './about-section-start.component.html',
+    styleUrl: './about-section-start.component.css'
 })
 export class AboutSectionStartComponent {
   user =

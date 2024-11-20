@@ -367,13 +367,13 @@ h3.my-profession {
   color: var(--tex-pdf-600);
 }
 
-.competences-block h5 {
+.competences-block competence {
   list-style-type: none;
-  margin: 0;
+  margin-left: 5px;
   padding: 0;
 }
 
-.competence h5 {
+.champ-competences .competences-block .competence .competence-informatique-title h5{
   list-style-type: none;
   /* Elimina cualquier viñeta antes de <h5> */
   margin: 0;
