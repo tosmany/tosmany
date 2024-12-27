@@ -872,6 +872,12 @@ h3.my-profession {
   padding: 0 50px;
 }
 
+.languages span{
+  margin-right: 3px;
+  margin-bottom: 3px;
+  font-family: cursive;
+}
+
 /*REPONSIVE */
 @media(max-width:1199px) {
   .aside {

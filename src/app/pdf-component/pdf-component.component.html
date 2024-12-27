@@ -2,24 +2,35 @@
   <div class="container col-4 col-md-6 col-lg-12" id="pdf_content">
     <!--Bloc Coordonnées-->
     <div class="col-4 coordonnees">
-      <h5>{{userCoordonnees.name}}</h5>
-      <p>{{userCoordonnees.adresse}}</p>
-      <p>{{userCoordonnees.ville}}&nbsp;({{userCoordonnees.province}})&nbsp;{{userCoordonnees.CP}}</p>
-      <p>{{userCoordonnees.telephone}}</p>
-      <p><i>{{userCoordonnees.email}}</i></p>
+      <h5>{{ userCoordonnees.name }}</h5>
+      <p>{{ userCoordonnees.adresse }}</p>
+      <p>
+        {{ userCoordonnees.ville }}&nbsp;({{
+          userCoordonnees.province
+        }})&nbsp;{{ userCoordonnees.CP }}
+      </p>
+      <p>{{ userCoordonnees.telephone }}</p>
+      <p>
+        <i>{{ userCoordonnees.email }}</i>
+      </p>
     </div>
     <!--Bloc Champ de compétences-->
     <div class="col champ-competences pb-4">
       <h4>Champs de competétences</h4>
-      <hr>
+      <hr />
       <div class="competences-block">
         <ul>
           <li *ngFor="let item of userChampCompetences" class="competence">
             <!-- Si el item es de tipo Competence y tiene 'Connaissances informatiques' -->
             <ng-container *ngIf="isCompetence(item)">
-              <h5 class="competence-informatique-title">{{ item.description}}</h5><!-- Título que aparece como encabezado -->
+              <h5 class="competence-informatique-title">
+                {{ item.description }}
+              </h5>
+              <!-- Título que aparece como encabezado -->
               <ul>
-                <li *ngFor="let competence of item['Connaissances informatiques']">
+                <li
+                  *ngFor="let competence of item['Connaissances informatiques']"
+                >
                   - {{ competence }}
                 </li>
               </ul>
@@ -36,42 +47,54 @@
     <!--Bloc Formation academique-->
     <div class="col formation-container pb-4">
       <h4>Formation acedémique</h4>
-      <hr>
-      <div class="formation-block" *ngFor="let formation of userFormationAcademique">
+      <hr />
+      <div
+        class="formation-block"
+        *ngFor="let formation of userFormationAcademique"
+      >
         <!-- Primera línea con formación y año -->
         <div class="row title">
-          <h5>{{ formation.diplome }}</h5> <!-- Título: diplome -->
-          <span>{{ formation.annee }}</span><!-- Année: année de la formation -->
+          <h5>{{ formation.diplome }}</h5>
+          <!-- Título: diplome -->
+          <span>{{ formation.annee }}</span
+          ><!-- Année: année de la formation -->
         </div>
         <div class="line">
           <!-- Segunda línea con formación y año -->
           <p>{{ formation.formationDetails[0].formation }}</p>
-           <!-- Tercera línea con centro y ciudad -->
-          <p>{{ formation.formationDetails[0].centre }}, {{ formation.formationDetails[0].ville }}</p>
+          <!-- Tercera línea con centro y ciudad -->
+          <p>
+            {{ formation.formationDetails[0].centre }},
+            {{ formation.formationDetails[0].ville }}
+          </p>
         </div>
-
       </div>
     </div>
     <!--Bloc Expériences professionnelles-->
     <div class="col experience-container pb-4">
       <h4>Expérience professionnelle</h4>
-      <hr>
+      <hr />
       <!-- Première ligne -->
-      <div class="experience-professionnelle" *ngFor="let experience of userExperienceProfessionelles">
+      <div
+        class="experience-professionnelle"
+        *ngFor="let experience of userExperienceProfessionelles"
+      >
         <!-- Première ligne -->
         <div class="row title">
-          <h5>{{ experience.poste }} </h5>
+          <h5>{{ experience.poste }}</h5>
           <span>{{ experience.annee }}</span>
         </div>
         <div class="line">
-            <!-- Deuxième ligne -->
+          <!-- Deuxième ligne -->
           <div class="compagnie">
             <p>{{ experience.compagnie }}</p>
           </div>
           <!-- Troisième ligne -->
           <div class="taches">
             <ul>
-              <li *ngFor="let detail of experience.detailDuPoste">{{ detail }}</li>
+              <li *ngFor="let detail of experience.detailDuPoste">
+                {{ detail }}
+              </li>
             </ul>
           </div>
         </div>
@@ -80,31 +103,34 @@
     <!--Bloc Autres formations-->
     <div class="autre-formation pb-4">
       <h4>Autres formations</h4>
-      <hr>
-      <div class="autre-formation-block" *ngFor="let formation of userAutresFormation">
+      <hr />
+      <div
+        class="autre-formation-block"
+        *ngFor="let formation of userAutresFormation"
+        i18n
+      >
         <!-- Première ligne -->
         <div class="row title">
           <h5>{{ formation.diplome }}</h5>
           <span>{{ formation.annee }}</span>
         </div>
         <!-- Deuxième ligne -->
-         <div class="line">
-
-            <span *ngFor="let detail of formation.formationDetails">{{ detail.centre}}, {{detail.ville}}</span>
-
-         </div>
+        <div class="line">
+          <span *ngFor="let detail of formation.formationDetails"
+            >{{ detail.centre }}, {{ detail.ville }}</span
+          >
+        </div>
       </div>
     </div>
     <!--Bloc Engagements sociaux-->
-    <div class="col engagement-sociaux ">
-
+    <div class="col engagement-sociaux" i18n>
       <h4>Engagements sociaux</h4>
-      <hr>
+      <hr />
       <!-- Première ligne -->
 
       <ul>
         <li *ngFor="let engagement of userEngementsSociaux">
-          <div style="margin-left: -18px;">
+          <div style="margin-left: -18px">
             <div class="row title">
               <!-- Deuxième ligne: iteramos sobre el arreglo de 'userEngementsSociaux' -->
               <h5>{{ engagement.role }}</h5>
@@ -112,31 +138,32 @@
             </div>
             <div *ngFor="let formation of engagement.formationDetails">
               <!-- Troisième ligne -->
-               <div class="title">
-                <p> {{ formation.centre }},  {{ formation.ville }}</p>
-               </div>
+              <div class="title">
+                <p>{{ formation.centre }}, {{ formation.ville }}</p>
+              </div>
 
-                <!-- Quatrième ligne -->
-                <div class="taches">
-                  <ul>
-                    <li *ngFor="let tache of engagement.taches">{{ tache }}</li>
-                  </ul>
-                </div>
-
+              <!-- Quatrième ligne -->
+              <div class="taches">
+                <ul>
+                  <li *ngFor="let tache of engagement.taches">{{ tache }}</li>
+                </ul>
+              </div>
             </div>
           </div>
         </li>
       </ul>
     </div>
-    <p>Références offertes sur demande</p>
+    <p i18n>Références offertes sur demande</p>
     <!-- Bloc date-->
-    <div class="date-container">
-     <p>{{date}}</p>
-   </div>
-   <div class="row my-5" >
-    <div class="buttons padd-15">
-      <a (click)="generatePDF()" class="btn"><i class="fa-solid fa-arrow-down me-3"></i>Télécharger</a>
+    <div class="date-container" i18n>
+      <p>{{ date }}</p>
     </div>
-  </div>
+    <div class="row my-5">
+      <div class="buttons padd-15" i18n>
+        <a (click)="generatePDF()" class="btn"
+          ><i class="fa-solid fa-arrow-down me-3"></i>Télécharger</a
+        >
+      </div>
+    </div>
   </div>
 </section>

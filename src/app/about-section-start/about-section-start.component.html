@@ -1,84 +1,110 @@
 <section class="about section">
   <div class="container">
     <div class="row">
-      <div class="section-title padd-15">
+      <div class="section-title padd-15" i18n>
         <h2>About us</h2>
       </div>
     </div>
     <div class="row">
       <div class="about-content padd-15">
         <div class="row">
-          <div class="about-text padd-15">
-            <h3>{{user.name}} :&nbsp;<span>{{user.titre}}</span></h3>
-            <p>{{user.description}}</p>
+          <div class="about-text padd-15" i18n>
+            <h3>
+              {{ user.name }} :&nbsp;<span>{{ user.titre }}</span>
+            </h3>
+            <p>{{ user.description }}</p>
           </div>
         </div>
         <div class="row">
           <div class="personal-info padd-15">
-            <div class="row">
+            <div class="row" i18n>
               <div class="info-item padd-15">
-                <p>Anniversaire:&nbsp;<span>{{user.dateNaissace}}</span></p>
+                <p>
+                  Anniversaire:&nbsp;<span>{{ user.dateNaissace }}</span>
+                </p>
               </div>
               <div class="info-item padd-15">
-                <p>Site Web:&nbsp;<span>{{user.web}}</span></p>
+                <p>
+                  Site Web:&nbsp;<span>{{ user.web }}</span>
+                </p>
               </div>
               <div class="info-item padd-15">
-                <p>Email:&nbsp;<span>{{user.email}}</span></p>
+                <p>
+                  Email:&nbsp;<span>{{ user.email }}</span>
+                </p>
               </div>
               <div class="info-item padd-15">
-                <p>Degree:&nbsp;<span>{{user.degree}}</span></p>
+                <p>
+                  Degree:&nbsp;<span>{{ user.degree }}</span>
+                </p>
               </div>
               <div class="info-item padd-15">
-                <p>Phone:&nbsp;<span>{{user.phone}}</span></p>
+                <p>
+                  Phone:&nbsp;<span>{{ user.phone }}</span>
+                </p>
               </div>
               <div class="info-item padd-15">
-                <p>Feelnace:&nbsp;<span>{{user.feelnace}}</span></p>
+                <p>
+                  Feelnace:&nbsp;<span>{{ user.feelnace }}</span>
+                </p>
               </div>
             </div>
             <div class="row">
-              <div class="buttons padd-15">
+              <div class="buttons padd-15" i18n>
                 <a href="/cv" class="btn">Télécharger CV</a>
                 <a href="#contact" class="btn hire-me">Hire Me</a>
               </div>
             </div>
           </div>
           <div class="skills padd-15">
-            <div class="row">
+            <div class="row" i18n>
               <div class="skill-item padd-15">
                 <h5>JS</h5>
-                <div class="skill-percent">{{user.compentence.js}}%</div>
+                <div class="skill-percent">{{ user.compentence.js }}%</div>
                 <div class="progress">
-                  <div class="progress-in" [style.width.%]="user.compentence.js"></div>
+                  <div
+                    class="progress-in"
+                    [style.width.%]="user.compentence.js"
+                  ></div>
                 </div>
               </div>
               <div class="skill-item padd-15">
                 <h5>PHP</h5>
-                <div class="skill-percent">{{user.compentence.php}}%</div>
+                <div class="skill-percent">{{ user.compentence.php }}%</div>
                 <div class="progress">
-                  <div class="progress-in" [style.width.%]="user.compentence.php"></div>
-
+                  <div
+                    class="progress-in"
+                    [style.width.%]="user.compentence.php"
+                  ></div>
                 </div>
               </div>
               <div class="skill-item padd-15">
                 <h5>HTML</h5>
-                <div class="skill-percent">{{user.compentence.html}}%</div>
+                <div class="skill-percent">{{ user.compentence.html }}%</div>
                 <div class="progress">
-                  <div class="progress-in" [style.width.%]="user.compentence.html"></div>
+                  <div
+                    class="progress-in"
+                    [style.width.%]="user.compentence.html"
+                  ></div>
                 </div>
               </div>
               <div class="skill-item padd-15">
                 <h5>Bootstrap</h5>
-                <div class="skill-percent">{{user.compentence.bootstrap}}%</div>
+                <div class="skill-percent">
+                  {{ user.compentence.bootstrap }}%
+                </div>
                 <div class="progress">
-                  <div class="progress-in" [style.width.%]="user.compentence.bootstrap"></div>
-
+                  <div
+                    class="progress-in"
+                    [style.width.%]="user.compentence.bootstrap"
+                  ></div>
                 </div>
               </div>
             </div>
           </div>
         </div>
         <div class="row">
-          <div class="education padd-15">
+          <div class="education padd-15" i18n>
             <h3 class="title">Education</h3>
             <div class="row">
               <div class="timeline-box padd-15">
@@ -90,9 +116,13 @@
                       <i class="fa fa-calendar"></i> 2013 - 2025
                     </h3>
                     <h4 class="timeline-title">Master in Computer Science</h4>
-                    <p class="timeline-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odit similique
-                      earum consectetur. Necessitatibus nulla, exercitationem dolorum, alias adipisci eos vitae
-                      obcaecati eum odio odit inventore veritatis dolore quisquam reiciendis voluptatum?</p>
+                    <p class="timeline-text">
+                      Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                      Odit similique earum consectetur. Necessitatibus nulla,
+                      exercitationem dolorum, alias adipisci eos vitae obcaecati
+                      eum odio odit inventore veritatis dolore quisquam
+                      reiciendis voluptatum?
+                    </p>
                   </div>
                   <!--==== timeline item ====-->
                   <div class="timeline-item">
@@ -101,9 +131,13 @@
                       <i class="fa fa-calendar"></i> 2013 - 2025
                     </h3>
                     <h4 class="timeline-title">Master in Computer Science</h4>
-                    <p class="timeline-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odit similique
-                      earum consectetur. Necessitatibus nulla, exercitationem dolorum, alias adipisci eos vitae
-                      obcaecati eum odio odit inventore veritatis dolore quisquam reiciendis voluptatum?</p>
+                    <p class="timeline-text">
+                      Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                      Odit similique earum consectetur. Necessitatibus nulla,
+                      exercitationem dolorum, alias adipisci eos vitae obcaecati
+                      eum odio odit inventore veritatis dolore quisquam
+                      reiciendis voluptatum?
+                    </p>
                   </div>
                   <!--==== timeline item ====-->
                   <div class="timeline-item">
@@ -112,15 +146,19 @@
                       <i class="fa fa-calendar"></i> 2013 - 2025
                     </h3>
                     <h4 class="timeline-title">Master in Computer Science</h4>
-                    <p class="timeline-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odit similique
-                      earum consectetur. Necessitatibus nulla, exercitationem dolorum, alias adipisci eos vitae
-                      obcaecati eum odio odit inventore veritatis dolore quisquam reiciendis voluptatum?</p>
+                    <p class="timeline-text">
+                      Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                      Odit similique earum consectetur. Necessitatibus nulla,
+                      exercitationem dolorum, alias adipisci eos vitae obcaecati
+                      eum odio odit inventore veritatis dolore quisquam
+                      reiciendis voluptatum?
+                    </p>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <div class="experience padd-15">
+          <div class="experience padd-15" i18n>
             <h3 class="title">Experience</h3>
             <div class="row">
               <div class="timeline-box padd-15">
@@ -132,9 +170,13 @@
                       <i class="fa fa-calendar"></i> 2013 - 2025
                     </h3>
                     <h4 class="timeline-title">Master in Computer Science</h4>
-                    <p class="timeline-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odit similique
-                      earum consectetur. Necessitatibus nulla, exercitationem dolorum, alias adipisci eos vitae
-                      obcaecati eum odio odit inventore veritatis dolore quisquam reiciendis voluptatum?</p>
+                    <p class="timeline-text">
+                      Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                      Odit similique earum consectetur. Necessitatibus nulla,
+                      exercitationem dolorum, alias adipisci eos vitae obcaecati
+                      eum odio odit inventore veritatis dolore quisquam
+                      reiciendis voluptatum?
+                    </p>
                   </div>
                   <!--==== timeline item ====-->
                   <div class="timeline-item">
@@ -143,9 +185,13 @@
                       <i class="fa fa-calendar"></i> 2013 - 2025
                     </h3>
                     <h4 class="timeline-title">Master in Computer Science</h4>
-                    <p class="timeline-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odit similique
-                      earum consectetur. Necessitatibus nulla, exercitationem dolorum, alias adipisci eos vitae
-                      obcaecati eum odio odit inventore veritatis dolore quisquam reiciendis voluptatum?</p>
+                    <p class="timeline-text">
+                      Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                      Odit similique earum consectetur. Necessitatibus nulla,
+                      exercitationem dolorum, alias adipisci eos vitae obcaecati
+                      eum odio odit inventore veritatis dolore quisquam
+                      reiciendis voluptatum?
+                    </p>
                   </div>
                   <!--==== timeline item ====-->
                   <div class="timeline-item">
@@ -154,9 +200,13 @@
                       <i class="fa fa-calendar"></i> 2013 - 2025
                     </h3>
                     <h4 class="timeline-title">Master in Computer Science</h4>
-                    <p class="timeline-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odit similique
-                      earum consectetur. Necessitatibus nulla, exercitationem dolorum, alias adipisci eos vitae
-                      obcaecati eum odio odit inventore veritatis dolore quisquam reiciendis voluptatum?</p>
+                    <p class="timeline-text">
+                      Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                      Odit similique earum consectetur. Necessitatibus nulla,
+                      exercitationem dolorum, alias adipisci eos vitae obcaecati
+                      eum odio odit inventore veritatis dolore quisquam
+                      reiciendis voluptatum?
+                    </p>
                   </div>
                 </div>
               </div>

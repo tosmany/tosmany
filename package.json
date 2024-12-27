@@ -2,7 +2,7 @@
   "name": "osmany-portfolio",
   "version": "0.0.0",
   "scripts": {
-    "dev": "npx nodemon index.html",
+    "dev": "nodemon server.ts",
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",

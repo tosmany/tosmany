@@ -1,14 +1,18 @@
 <section class="home section">
   <div class="container">
     <div class="row">
-      <div class="home-info padd-15">
-        <h3 class="hello">{{presentation.gretting}}&nbsp;<span class="name">{{presentation.name}}</span></h3>
+      <div class="home-info padd-15" i18n>
+        <h3 class="hello">
+          {{ presentation.gretting }}&nbsp;<span class="name">{{
+            presentation.name
+          }}</span>
+        </h3>
         <h3 class="my-profession">Je suis&nbsp;<span class="typing"></span></h3>
-        <p>{{presentation.description}}</p>
-        <a href="/contact" class="btn hire-me">{{presentation.buttonText}}</a>
+        <p>{{ presentation.description }}</p>
+        <a href="/contact" class="btn hire-me">{{ presentation.buttonText }}</a>
       </div>
       <div class="home-img padd-15">
-        <img src="{{presentation.image}}" alt="">
+        <img src="{{ presentation.image }}" alt="" />
       </div>
     </div>
   </div>
