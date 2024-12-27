@@ -4,6 +4,15 @@
   "newProjectRoot": "projects",
   "projects": {
     "OsmanyPortfolio": {
+      "i18n": {
+        "sourceLocale":"fr-CA",
+        "locales" : {
+          "en-EN":"src/locale/messages.en.xlf",
+          "it-IT":"src/locale/messages.it.xlf",
+          "de-DE":"src/locale/messages.de.xlf",
+          "es-CU":"src/locale/messages.de.xlf"
+        }
+      },
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -16,7 +25,7 @@
             "outputPath": "dist/osmany-portfolio",
             "index": "src/index.html",
             "browser": "src/main.ts",
-            "localize":true,
+            "localize":["fr-CA"],
             "polyfills": [
               "zone.js",
               "@angular/localize/init"

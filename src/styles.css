@@ -873,9 +873,10 @@ h3.my-profession {
 }
 
 .languages span{
-  margin-right: 3px;
-  margin-bottom: 3px;
+  margin-right: 8px;
+  margin-bottom: 2px;
   font-family: cursive;
+  font-size: 17px;
 }
 
 /*REPONSIVE */

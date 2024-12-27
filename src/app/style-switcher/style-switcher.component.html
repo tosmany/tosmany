@@ -1,4 +1,4 @@
-<div #styleSwitcher class="style-switcher" i18n>
+<div #styleSwitcher class="style-switcher">
   <div #styleSwitcherToggle class="style-switcher-toggler s-icon">
     <i class="fas fa-cog fa-spin"></i>
   </div>
@@ -6,16 +6,17 @@
   <div #dayNight class="day-night s-icon" (click)="toggleTheme()">
     <i class="fas"></i>
   </div>
-  <h4>Languages</h4>
+  <div class=""></div>
   <div class="languages">
-    <span class="language-en" (click)="setActiveLanguage()">EN</span>
-    <span class="language-fr" (click)="setActiveLanguage()">FR</span>
-    <span class="language-es" (click)="setActiveLanguage()">ES</span>
-    <span class="language-it" (click)="setActiveLanguage()">IT</span>
-    <span class="language-de" (click)="setActiveLanguage()">DE</span>
+    <h4 i18n>Languages</h4>
+    <span class="language-en" (click)="setActiveLanguage()">en</span>
+    <span class="language-fr" (click)="setActiveLanguage()">fr</span>
+    <span class="language-es" (click)="setActiveLanguage()">es</span>
+    <span class="language-it" (click)="setActiveLanguage()">it</span>
+    <span class="language-de" (click)="setActiveLanguage()">de</span>
   </div>
-  <h4>Themes de couleurs</h4>
-  <div class="colors">
+  <div class="colors mt-3">
+    <h4 i18n>Themes de couleurs</h4>
     <span class="color-1" (click)="setActiveStyle('color-1')"></span>
     <span class="color-2" (click)="setActiveStyle('color-2')"></span>
     <span class="color-3" (click)="setActiveStyle('color-3')"></span>
