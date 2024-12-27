@@ -367,13 +367,7 @@ h3.my-profession {
   color: var(--tex-pdf-600);
 }
 
-.competences-block competence {
-  list-style-type: none;
-  margin-left: 5px;
-  padding: 0;
-}
-
-.champ-competences .competences-block .competence .competence-informatique-title h5{
+.competences-block ul li{
   list-style-type: none;
   /* Elimina cualquier viñeta antes de <h5> */
   margin: 0;
@@ -389,7 +383,6 @@ h3.my-profession {
 }
 
 .pdf-section .coordonnees h5 {
-  list-style: none;
   flex: start;
 }
 
