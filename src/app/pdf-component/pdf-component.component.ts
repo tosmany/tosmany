@@ -72,69 +72,69 @@ export class PdfComponentComponent {
   };
 
   userChampCompetences: (Competence | string)[] = [
-    "Langues: français, anglais, espagnol",
-    "Trois ans d’expérience en développement WEB (frontend - backend)",
-    "Être à l’affut des exigences fonctionnelles et non fonctionnelles dans l’écriture du code",
-    "Contrôler la qualité de l’application",
-    "Appliquer le référencement d'un site Web",
-    "Gérer des projets selon la méthode Scrum d’Agile",
-    "Sens de l’organisation et de priorités",
-    "Capacité d’analyse",
-    "Habileté à travailler en équipe et de forme autonome",
-    "Exploiter un système de gestion de base de données",
+    $localize `Langues: français, anglais, espagnol`,
+    $localize `Trois ans d’expérience en développement WEB (frontend - backend)`,
+    $localize `Être à l’affut des exigences fonctionnelles et non fonctionnelles dans l’écriture du code`,
+    $localize `Contrôler la qualité de l’application`,
+    $localize `Appliquer le référencement d'un site Web`,
+    $localize `Gérer des projets selon la méthode Scrum d’Agile`,
+    $localize `Sens de l’organisation et de priorités`,
+    $localize `Capacité d’analyse`,
+    $localize `Habileté à travailler en équipe et de forme autonome`,
+    $localize `Exploiter un système de gestion de base de données`,
     {
       "Connaissances informatiques": [
-        "Langage: Java, JavaScript, HTML, CSS, PHP, C#, C++",
-        "Technologies : Angular, Spring, Vue, Express, Node, .Net, Git, Jira, Figma, CISCO",
-        "Bases de données: Mongo DB, MySQL, SQL",
-        "Microsoft Office: Word, Outlook, Excel, PowerPoint, Teams, Access",
-        "Système opératif: Windows, Linux, Mac"
+        $localize `Langage: Java, JavaScript, HTML, CSS, PHP, C#, C++`,
+        $localize `Technologies : Angular, Spring, Vue, Express, Node, .Net, Git, Jira, Figma, CISCO`,
+        $localize `Bases de données: Mongo DB, MySQL, SQL`,
+        $localize `Microsoft Office: Word, Outlook, Excel, PowerPoint, Teams, Access`,
+        $localize `Système opératif: Windows, Linux, Mac`
       ],
-      description: "Connaissances informatiques"
+      description: $localize `"Connaissances informatiques"`
     }
   ];
 
   userFormationAcademique: FormationAcademique[] = [
     {
-      "diplome": "AEC Développement de sites Web transactionnels",
+      "diplome": $localize `AEC Développement de sites Web transactionnels`,
       "formationDetails": [
         {
-          "formation": "Formation intensive (975 heures)",
-          "centre": "Collège Ahuntsic",
-          "ville": "Montréal"
+          "formation": $localize `Formation intensive (975 heures)`,
+          "centre": $localize `Collège Ahuntsic`,
+          "ville": $localize `Montréal`
         }
       ],
-      "annee": "En cours"
+      "annee": $localize `En cours`
     },
     {
-      "diplome": "AEC Programmation objet orientée et technologies WEB",
+      "diplome": $localize `AEC Programmation objet orientée et technologies WEB`,
       "formationDetails": [
         {
-          "formation": "Formation continue (1410 heures)",
-          "centre": "Collège Rosemont",
-          "ville": "Montréal"
+          "formation": $localize `Formation continue (1410 heures)`,
+          "centre": $localize `Collège Rosemont`,
+          "ville": $localize `Montréal`
         }
       ],
       "annee": "2021 - 2022"
     },
     {
-      "diplome": "DEC Gestion de réseaux",
+      "diplome": $localize `DEC Gestion de réseaux`,
       "formationDetails": [
         {
-          "formation": "Formation régulière (1450 heures)",
-          "centre": "Collège De Maisonneuve",
-          "ville": "Montréal"
+          "formation": $localize `Formation régulière (1450 heures)`,
+          "centre": $localize `Collège De Maisonneuve`,
+          "ville": $localize `Montréal`
         }
       ],
-      "annee": "En cours"
+      "annee": $localize `En cours`
     },
     {
-      "diplome": "DEP Support technique",
+      "diplome": $localize `DEP Support technique`,
       "formationDetails": [
         {
-          "formation": "Formation intensive (975 heures)",
-          "centre": "Collège Herzing",
-          "ville": "Montréal"
+          "formation": $localize `Formation intensive (975 heures)`,
+          "centre": $localize `Collège Herzing`,
+          "ville": $localize `Montréal`
         }
       ],
       "annee": "2010 - 2012"
@@ -143,35 +143,35 @@ export class PdfComponentComponent {
 
   userExperienceProfessionelles: ExperienceDetail[] = [
     {
-      "poste": "Opérateur logistique",
+      "poste": $localize `Opérateur logistique`,
       "compagnie": "Gastier / Ganotec",
       "detailDuPoste": [
-        "Gérer la logistique d’entreposage pour de matériaux dangereux et non dangereux",
-        "Manipuler une base de données",
-        "Maintenir à jour la documentation ainsi que les archives",
-        "Respecter et porter des améliorations de la norme ISO 9000"
+        $localize `Gérer la logistique d’entreposage pour de matériaux dangereux et non dangereux`,
+        $localize `Manipuler une base de données`,
+        $localize `Maintenir à jour la documentation ainsi que les archives`,
+        $localize `Respecter et porter des améliorations de la norme ISO 9000`
       ],
-      "annee": "2017 - cours"
+      "annee": $localize `2017 - cours`
     },
     {
-      "poste": "Stagiaire",
-      "compagnie": "Mouvement Desjardins",
+      "poste": $localize `Stagiaire`,
+      "compagnie": $localize `Mouvement Desjardins`,
       "detailDuPoste": [
-        "Analyser de billets dans Jira et participer dans les Scrum",
-        "Développer et analyser des applications frontend",
-        "Travailler en équipe sur le principe d’entraide pour finir un Spring dans un délais établi"
+        $localize `Analyser de billets dans Jira et participer dans les Scrum`,
+        $localize `Développer et analyser des applications frontend`,
+        $localize `Travailler en équipe sur le principe d’entraide pour finir un Spring dans un délais établi`
       ],
-      "annee": "sept. - oct. 2017"
+      "annee": $localize `sept. - oct. 2017`
     },
     {
-      "poste": "Travailleur autonome",
+      "poste": $localize `Travailleur autonome`,
       "compagnie": "",
       "detailDuPoste": [
-        "Configurer et mettre en place de petit et de moyen réseau informatique",
-        "Installer des composants et de logiciels informatiques",
-        "Optimiser des postes de travail"
+        $localize `Configurer et mettre en place de petit et de moyen réseau informatique`,
+        $localize `Installer des composants et de logiciels informatiques`,
+        $localize `Optimiser des postes de travail`
       ],
-      "annee": "2013 - en cours"
+      "annee": $localize `2013 - en cours`
     }
   ];
 
@@ -180,18 +180,18 @@ export class PdfComponentComponent {
       "diplome": "LabView 1",
       "formationDetails": [
         {
-          "centre": "Collège Saint-Laurent",
-          "ville": "Montréal"
+          "centre": $localize `Collège Saint-Laurent`,
+          "ville": $localize `Montréal`
         }
       ],
       "annee": "2016"
     },
     {
-      "diplome": "CCNA Sécurité",
+      "diplome": $localize `CCNA Sécurité`,
       "formationDetails": [
         {
-          "centre": "Collège Saint-Laurent",
-          "ville": "Montréal"
+          "centre": $localize `Collège Saint-Laurent`,
+          "ville": $localize `Montréal`
         }
       ],
       "annee": "2015"
@@ -200,18 +200,18 @@ export class PdfComponentComponent {
 
   userEngementsSociaux: EngagementSocial[] = [
     {
-      role: "Bénévolat",
+      role: $localize `Bénévolat`,
       formationDetails: [
         {
-          centre: "Centre de soir Massé",
-          ville: "Montréal"
+          centre: $localize `Centre de soir Denise Massé`,
+          ville: $localize `Montréal`
         }
       ],
       annee: "2016 - 2017",
       taches: [
-        "Rétablir, configurer et optimiser un poste informatique",
-        "Installer des outils de nettoyage et de sécurité sur les stations de travail",
-        "Donner des formations bases sur l'explotaition de poste informatique"
+        $localize `Rétablir, configurer et optimiser un poste informatique`,
+        $localize `Installer des outils de nettoyage et de sécurité sur les stations de travail`,
+        $localize `Donner des formations bases sur l'explotaition de poste informatique`
       ]
     }
   ];
@@ -311,34 +311,10 @@ export class PdfComponentComponent {
     }
 
     //Add compétences
-    /*const addCompetences = () => {
-      titre();
-      pdf.text("Compétences", marginX, currentY);
-      currentY += 3;
-      addLineSeparator(currentY); //Ligne separatrice
-      currentY += 8;
 
-      textDescription();
-       //Iterarar les compétences
-       this.userChampCompetences.forEach((competence, index) =>{
-        if (typeof competence === 'string') {
-          pdf.text(`° ${competence}`, marginX, currentY);
-        } else {
-          pdf.text(`${competence.description}:`, marginX, currentY);
-          currentY += 6;
-          subTitre();
-          competence["Connaissances informatiques"]?.forEach( info => {
-            textDescription();
-            pdf.text(` ° ${info}`, marginX + 2, currentY);
-            currentY +=6;
-          });
-        }
-        currentY += 8;
-      });
-    }*/
       const addCompetences = () => {
         titre();
-        pdf.text("Compétences", marginX, currentY);
+        pdf.text($localize `Compétences`, marginX, currentY);
         currentY += 3;
         addLineSeparator(currentY); // Línea separadora
         currentY += 10;
@@ -390,7 +366,7 @@ export class PdfComponentComponent {
     //Add formation academique
     const addFormationAcademique = () => {
       titre();
-      pdf.text("Formation Académique", marginX, currentY);
+      pdf.text( $localize `Formation Académique`, marginX, currentY);
       currentY += 3;
       addLineSeparator(currentY); //Ligne separatrice
       currentY += 8;
@@ -414,7 +390,7 @@ export class PdfComponentComponent {
     //Add expérience professionnelle
     const addExperienceProfessionnelle = () => {
       titre();
-      pdf.text("Expérience Professionnelle", marginX, currentY);
+      pdf.text( $localize `Expérience Professionnelle`, marginX, currentY);
       currentY += 3;
       addLineSeparator(currentY); //Ligne separatrice
       currentY += 8;
@@ -440,7 +416,7 @@ export class PdfComponentComponent {
     //Add Autres formations
     const addAutreFormation = () => {
       titre()
-      pdf.text("Autres Formations", marginX, currentY);
+      pdf.text( $localize `Autres Formations`, marginX, currentY);
       currentY += 3;
       addLineSeparator(currentY); //Ligne separatrice
       currentY += 8;
@@ -463,7 +439,7 @@ export class PdfComponentComponent {
     //Add Angagements soicaux
     const addEngagementSocial = () => {
       titre();
-      pdf.text("Engagement Social", marginX, currentY);
+      pdf.text( $localize `Engagement Social`, marginX, currentY);
       currentY += 3;
       addLineSeparator(currentY); //Ligne separatrice
       currentY += 8;
@@ -493,7 +469,7 @@ export class PdfComponentComponent {
     const addDate = () => {
       pdf.setFont('Helvetica', 'normal');
       pdf.setFontSize(10);
-      pdf.text(`Date: ${new Date().toLocaleDateString()}`, pageWidth - marginX, pageHeight - 20, { align: 'right' });
+      pdf.text($localize `Date: ${new Date().toLocaleDateString()}`, pageWidth - marginX, pageHeight - 20, { align: 'right' });
     }
 
     // Construir le PDF
