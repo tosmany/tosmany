@@ -87,7 +87,7 @@ export class PdfComponentComponent {
         $localize `Langage: Java, JavaScript, HTML, CSS, PHP, C#, C++`,
         $localize `Technologies : Angular, Spring, Vue, Express, Node, .Net, Git, Jira, Figma, CISCO`,
         $localize `Bases de données: Mongo DB, MySQL, SQL`,
-        $localize `Microsoft Office: Word, Outlook, Excel, PowerPoint, Teams, Access`,
+        $localize `Microsoft Office: Word, Outlook, Excel, PowerPoint, Teams, Access, Planner`,
         $localize `Système opératif: Windows, Linux, Mac`
       ],
       description: $localize `"Connaissances informatiques"`
@@ -157,7 +157,7 @@ export class PdfComponentComponent {
       "poste": $localize `Stagiaire`,
       "compagnie": $localize `Mouvement Desjardins`,
       "detailDuPoste": [
-        $localize `Analyser de billets dans Jira et participer dans les Scrum`,
+        $localize `Analyser de billets dans Jira et participer dans les Scrums`,
         $localize `Développer et analyser des applications frontend`,
         $localize `Travailler en équipe sur le principe d’entraide pour finir un Spring dans un délais établi`
       ],
