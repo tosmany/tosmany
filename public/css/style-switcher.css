@@ -51,7 +51,7 @@
   text-transform: capitalize;
 }
 
-.style-switcher .colors {
+.style-switcher .colors{
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -59,6 +59,7 @@
 
 .style-switcher .colors span {
   display: inline-block;
+  margin-inline: 1.7px;
   height: 30px;
   width: 30px;
   border-radius: 50%;
@@ -83,4 +84,12 @@
 
 .style-switcher .color-5 {
   background: #f021b2;
+}
+
+.style-switcher .languages span{
+  margin-right: 8px;
+  margin-bottom: 2px;
+  font-family: cursive;
+  font-size: 17px;
+  cursor: pointer;
 }

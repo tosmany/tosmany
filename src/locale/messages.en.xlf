@@ -745,7 +745,7 @@
         <source>Être à l’affut des exigences fonctionnelles et non fonctionnelles dans l’écriture
           du
           code</source>
-        <target>Être à l’affut des exigences fonctionnelles et non fonctionnelles dans l’écriture du
+        <target>Be on the lookout for functional and non-functional requirements in writing the
           code</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pdf-component/pdf-component.component.ts</context>
@@ -754,7 +754,7 @@
       </trans-unit>
       <trans-unit id="7985408425300205458" datatype="html">
         <source>Contrôler la qualité de l’application</source>
-        <target>Contrôler la qualité de l’application</target>
+        <target>Control the quality of the application</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pdf-component/pdf-component.component.ts</context>
           <context context-type="linenumber">78</context>
@@ -762,7 +762,7 @@
       </trans-unit>
       <trans-unit id="2775344972990129519" datatype="html">
         <source>Appliquer le référencement d&apos;un site Web</source>
-        <target>Appliquer le référencement d&apos;un site Web</target>
+        <target>Applying SEO for a website</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pdf-component/pdf-component.component.ts</context>
           <context context-type="linenumber">79</context>
@@ -770,7 +770,7 @@
       </trans-unit>
       <trans-unit id="9216070915769197777" datatype="html">
         <source>Gérer des projets selon la méthode Scrum d’Agile</source>
-        <target>Gérer des projets selon la méthode Scrum d’Agile</target>
+        <target>Manage projects using the Agile Scrum method</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pdf-component/pdf-component.component.ts</context>
           <context context-type="linenumber">80</context>
@@ -778,7 +778,7 @@
       </trans-unit>
       <trans-unit id="4313954490971479956" datatype="html">
         <source>Sens de l’organisation et de priorités</source>
-        <target>Sens de l’organisation et de priorités</target>
+        <target>Sense of organization and priorities</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pdf-component/pdf-component.component.ts</context>
           <context context-type="linenumber">81</context>
@@ -786,7 +786,7 @@
       </trans-unit>
       <trans-unit id="697600278390049297" datatype="html">
         <source>Capacité d’analyse</source>
-        <target>Capacité d’analyse</target>
+        <target>Analytical capacity</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pdf-component/pdf-component.component.ts</context>
           <context context-type="linenumber">82</context>
@@ -794,7 +794,7 @@
       </trans-unit>
       <trans-unit id="2080180678618508280" datatype="html">
         <source>Habileté à travailler en équipe et de forme autonome</source>
-        <target>Habileté à travailler en équipe et de forme autonome</target>
+        <target>Ability to work in a team and independently</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pdf-component/pdf-component.component.ts</context>
           <context context-type="linenumber">83</context>
@@ -802,7 +802,7 @@
       </trans-unit>
       <trans-unit id="9174982500782852243" datatype="html">
         <source>Exploiter un système de gestion de base de données</source>
-        <target>Exploiter un système de gestion de base de données</target>
+        <target>Operate a database management system</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pdf-component/pdf-component.component.ts</context>
           <context context-type="linenumber">84</context>
@@ -810,7 +810,7 @@
       </trans-unit>
       <trans-unit id="2786918718580565865" datatype="html">
         <source>Langage: Java, JavaScript, HTML, CSS, PHP, C#, C++</source>
-        <target>Langage: Java, JavaScript, HTML, CSS, PHP, C#, C++</target>
+        <target>Language: Java, JavaScript, HTML, CSS, PHP, C#, C++</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pdf-component/pdf-component.component.ts</context>
           <context context-type="linenumber">87</context>
@@ -866,7 +866,7 @@
       </trans-unit>
       <trans-unit id="5637901246739033798" datatype="html">
         <source>Formation intensive (975 heures)</source>
-        <target>Formation intensive (975 heures)</target>
+        <target>Intensif program (975 hours)</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pdf-component/pdf-component.component.ts</context>
           <context context-type="linenumber">102</context>
@@ -938,7 +938,7 @@
       </trans-unit>
       <trans-unit id="9133847330985204964" datatype="html">
         <source>Formation continue (1410 heures)</source>
-        <target>Formation continue (1410 heures)</target>
+        <target>Adult program (1410 hours)</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pdf-component/pdf-component.component.ts</context>
           <context context-type="linenumber">113</context>
@@ -962,7 +962,7 @@
       </trans-unit>
       <trans-unit id="6109098877860328503" datatype="html">
         <source>Formation régulière (1450 heures)</source>
-        <target>Formation régulière (1450 heures)</target>
+        <target>Regular program (1450 hours)</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pdf-component/pdf-component.component.ts</context>
           <context context-type="linenumber">124</context>

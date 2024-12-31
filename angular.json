@@ -7,10 +7,10 @@
       "i18n": {
         "sourceLocale":"fr-CA",
         "locales" : {
-          "en-EN":"src/locale/messages.en.xlf",
-          "it-IT":"src/locale/messages.it.xlf",
-          "de-DE":"src/locale/messages.de.xlf",
-          "es-CU":"src/locale/messages.de.xlf"
+          "en-US":"src/locale/messages.en.xlf",
+          "it-CH":"src/locale/messages.it.xlf",
+          "de-CH":"src/locale/messages.de.xlf",
+          "es-CU":"src/locale/messages.es.xlf"
         }
       },
       "projectType": "application",
@@ -25,7 +25,7 @@
             "outputPath": "dist/osmany-portfolio",
             "index": "src/index.html",
             "browser": "src/main.ts",
-            "localize":["fr-CA"],
+            "localize":["en-US"],
             "polyfills": [
               "zone.js",
               "@angular/localize/init"
