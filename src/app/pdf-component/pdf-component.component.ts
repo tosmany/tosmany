@@ -90,7 +90,7 @@ export class PdfComponentComponent {
         $localize `Microsoft Office: Word, Outlook, Excel, PowerPoint, Teams, Access, Planner`,
         $localize `Système opératif: Windows, Linux, Mac`
       ],
-      description: $localize `"Connaissances informatiques"`
+      description: $localize `${"Connaissances informatiques"}`
     }
   ];
 

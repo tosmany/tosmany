@@ -381,7 +381,7 @@
             ctype="x-i" equiv-text="&lt;/i&gt;" />En savoir plus</source>
         <target><x id="START_ITALIC_TEXT" ctype="x-i"
             equiv-text="&lt;i class=&quot;fa fa-user&quot;&gt;" /><x id="CLOSE_ITALIC_TEXT"
-            ctype="x-i" equiv-text="&lt;/i&gt;" />Sobre nosotros</target>
+            ctype="x-i" equiv-text="&lt;/i&gt;" />Aún más</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/aside-start/aside-start.component.html</context>
           <context context-type="linenumber">24,26</context>
@@ -391,9 +391,9 @@
         <source><x id="START_ITALIC_TEXT" ctype="x-i"
             equiv-text="&lt;i class=&quot;fa fa-list&quot;&gt;" /><x id="CLOSE_ITALIC_TEXT"
             ctype="x-i" equiv-text="&lt;/i&gt;" />Services</source>
-        <target><x id="START_ITALIC_TEXT" ctype="x-i"
+        <source><x id="START_ITALIC_TEXT" ctype="x-i"
             equiv-text="&lt;i class=&quot;fa fa-list&quot;&gt;" /><x id="CLOSE_ITALIC_TEXT"
-            ctype="x-i" equiv-text="&lt;/i&gt;" />Servicios</target>
+            ctype="x-i" equiv-text="&lt;/i&gt;" />Servicios</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/aside-start/aside-start.component.html</context>
           <context context-type="linenumber">33,35</context>
@@ -497,7 +497,7 @@
       </trans-unit>
       <trans-unit id="7243381769177289361" datatype="html">
         <source>Envoyer</source>
-        <target>Send</target>
+        <target>Enviar</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/contact-section/contact-section.component.html</context>
           <context context-type="linenumber">90,91</context>
@@ -533,7 +533,7 @@
           }}" /><x id="CLOSE_TAG_SPAN"
             ctype="x-span" equiv-text="&lt;/span&gt;" /><x id="CLOSE_HEADING_LEVEL3" ctype="x-h3"
             equiv-text="&lt;/h3&gt;" /><x id="START_HEADING_LEVEL3_1"
-            equiv-text="&lt;h3 class=&quot;my-profession&quot;&gt;" />Je suis <x
+            equiv-text="&lt;h3 class=&quot;my-profession&quot;&gt;" />Soy <x
             id="START_TAG_SPAN_1" ctype="x-span_1"
             equiv-text="&lt;span class=&quot;typing&quot;&gt;" /><x id="CLOSE_TAG_SPAN"
             ctype="x-span" equiv-text="&lt;/span&gt;" /><x id="CLOSE_HEADING_LEVEL3" ctype="x-h3"
@@ -826,7 +826,7 @@
       </trans-unit>
       <trans-unit id="632232015950195316" datatype="html">
         <source>&quot;Connaissances informatiques&quot;</source>
-        <target>&quot;Conocimientos en informática&quot;</target>
+        <target>&quot;Conocimientos de informática&quot;</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pdf-component/pdf-component.component.ts</context>
           <context context-type="linenumber">93</context>

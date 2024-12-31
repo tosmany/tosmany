@@ -5,12 +5,24 @@
   "projects": {
     "OsmanyPortfolio": {
       "i18n": {
-        "sourceLocale":"fr-CA",
+        "sourceLocale":"en-US",
         "locales" : {
-          "en-US":"src/locale/messages.en.xlf",
-          "it-CH":"src/locale/messages.it.xlf",
-          "de-CH":"src/locale/messages.de.xlf",
-          "es-CU":"src/locale/messages.es.xlf"
+          "fr-CA":{
+            "translation":"src/locale/messages.xlf",
+            "baseHref": "fr-CA"
+          },
+          "it-CH":{
+            "translation":"src/locale/messages.it.xlf",
+            "baseHref": "it-CH"
+          },
+          "de-CH":{
+            "translation":"src/locale/messages.de.xlf",
+            "baseHref": "de-CH"
+          },
+          "es-CU":{
+            "translation":"src/locale/messages.es.xlf",
+            "baseHref": "es-CH"
+          }
         }
       },
       "projectType": "application",
@@ -25,7 +37,7 @@
             "outputPath": "dist/osmany-portfolio",
             "index": "src/index.html",
             "browser": "src/main.ts",
-            "localize":["en-US"],
+            "localize":["es-CU"],
             "polyfills": [
               "zone.js",
               "@angular/localize/init"
