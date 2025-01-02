@@ -1,0 +1,110 @@
+{
+    "pdf-component":{
+        "name": "Terry Diaz, Osmany",
+        "address": "5668, 7 avenue",
+        "city": "Montréal (Québec) H1Y 2N7",
+        "phone": "(514) 962-5239",
+        "email": "hablandoenserio@yahoo.com",
+        "skills": {
+          "languages": ["French", "English", "Spanish"],
+          "experience": "Three years of experience in Web development (frontend - backend)",
+          "functional_requirements": "Attending to functional and non-functional requirements in code writing",
+          "application_quality": "Controlling the quality of the application",
+          "seo": "Applying website SEO",
+          "project_management": "Managing projects using Scrum method of Agile",
+          "organization_skills": "Sense of organization and prioritization",
+          "analytical_ability": "Ability to analyze",
+          "teamwork": "Ability to work in a team and autonomously",
+          "database_management": "Exploiting a database management system"
+        },
+        "technical_knowledge": {
+          "programming_languages": ["Java", "JavaScript", "HTML", "CSS", "PHP", "C#", "C++"],
+          "technologies": ["Angular", "Spring", "Vue", "Express", "Node", ".Net", "Git", "Jira", "Figma", "CISCO"],
+          "databases": ["Mongo DB", "MySQL", "SQL"],
+          "microsoft_office": ["Word", "Outlook", "Excel", "PowerPoint", "Teams", "Access"],
+          "operating_systems": ["Windows", "Linux", "Mac"]
+        },
+        "education": [
+          {
+            "degree": "AEC Web Transactional Site Development",
+            "status": "Ongoing",
+            "duration": "975 hours",
+            "institution": "Collège Ahuntsic, Montréal"
+          },
+          {
+            "degree": "AEC Object-Oriented Programming and Web Technologies",
+            "years": "2021 - 2022",
+            "duration": "1410 hours",
+            "institution": "Collège Rosemont, Montréal"
+          },
+          {
+            "degree": "DEC Network Management",
+            "status": "Ongoing",
+            "duration": "1450 hours",
+            "institution": "Collège De Maisonneuve, Montréal"
+          },
+          {
+            "degree": "DEP Technical Support",
+            "years": "2010 - 2012",
+            "duration": "975 hours",
+            "institution": "Collège Herzing, Montréal"
+          }
+        ],
+        "work_experience": [
+          {
+            "title": "Logistics Operator",
+            "years": "2017 - Present",
+            "company": "Gastier / Ganotec",
+            "responsibilities": [
+              "Manage warehouse logistics for hazardous and non-hazardous materials",
+              "Handle a database",
+              "Maintain documentation and archives",
+              "Ensure compliance with and improve ISO 9000 standards"
+            ]
+          },
+          {
+            "title": "Intern",
+            "years": "Sept. - Oct. 2017",
+            "company": "Mouvement Desjardins",
+            "responsibilities": [
+              "Analyze tickets in Jira and participate in Scrum",
+              "Develop and analyze frontend applications",
+              "Collaborate with the team to complete a Spring within a set deadline"
+            ]
+          },
+          {
+            "title": "Freelancer",
+            "years": "2013 - Present",
+            "responsibilities": [
+              "Configure and set up small and medium-sized computer networks",
+              "Install components and software",
+              "Optimize workstations"
+            ]
+          }
+        ],
+        "additional_trainings": [
+          {
+            "course": "LabView 1",
+            "year": "2016",
+            "institution": "Collège Saint-Laurent, Montréal"
+          },
+          {
+            "course": "CCNA Security",
+            "year": "2015",
+            "institution": "Collège Saint-Laurent, Montréal"
+          }
+        ],
+        "social_engagement": {
+          "volunteer_work": {
+            "years": "2016 - 2017",
+            "organization": "Centre de soir Massé, Montréal",
+            "tasks": [
+              "Restore, configure and optimize computer workstations",
+              "Install cleaning and security tools on workstations",
+              "Provide basic training on workstation usage"
+            ]
+          }
+        },
+        "references": "Available upon request"
+    }
+}

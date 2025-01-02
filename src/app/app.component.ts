@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { MainContainerComponent } from './main-container/main-container.component';
 import { StyleSwitcherComponent } from './style-switcher/style-switcher.component';
+import { TraductorService } from './traductor.service';
 
 
 @Component({
@@ -15,5 +16,6 @@ import { StyleSwitcherComponent } from './style-switcher/style-switcher.componen
     styleUrl: './app.component.css'
 })
 export class AppComponent {
+  constructor(private translate: TraductorService){}
   title = 'OsmanyPortfolio';
 }
