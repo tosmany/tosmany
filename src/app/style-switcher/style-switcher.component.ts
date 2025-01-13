@@ -7,9 +7,11 @@ import {
   QueryList,
   AfterViewInit,
   Inject,
+  inject,
   PLATFORM_ID,
 } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-style-switcher',
@@ -22,6 +24,8 @@ export class StyleSwitcherComponent implements AfterViewInit {
   @ViewChild('styleSwitcherToggle', { static: true })
   styleSwitcherToggle!: ElementRef;
   isDark:boolean = false;
+
+  translate: TranslateService = inject(TranslateService);
 
   // Usamos ViewChildren para obtener todas las referencias de los elementos <link> con la clase 'alternate-style'
   @ViewChildren('alternateStyles') alternateStyles!: QueryList<ElementRef>;
@@ -81,6 +85,7 @@ export class StyleSwitcherComponent implements AfterViewInit {
     // Alternamos la clase 'dark' en el cuerpo
     if (this.isDark) {
       this.renderer.addClass(document.body, 'dark');
+      
     } else {
       this.renderer.removeClass(document.body, 'dark');
     }
@@ -101,5 +106,7 @@ export class StyleSwitcherComponent implements AfterViewInit {
     }
   }
  /* Set language to show */
- setActiveLanguage(){}
+ setActiveLanguage(lang: string){
+  this.translate.use(lang);
+ }
 }
