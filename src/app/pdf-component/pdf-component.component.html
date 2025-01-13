@@ -24,14 +24,14 @@
             <!-- Si el item es de tipo Competence y tiene 'Connaissances informatiques' -->
             <ng-container *ngIf="isCompetence(item)">
               <h5 class="competence-informatique-title">
-                {{ item.description }}
+                {{ item.description | translate }}
               </h5>
               <!-- Título que aparece como encabezado -->
               <ul>
                 <li
                   *ngFor="let competence of item['Connaissances informatiques']"
                 >
-                  - {{ competence }}
+                  - {{ competence | translate }}
                 </li>
               </ul>
             </ng-container>

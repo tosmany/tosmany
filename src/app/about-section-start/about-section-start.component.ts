@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
 import { PdfComponentComponent } from '../pdf-component/pdf-component.component';
+import { TranslateModule } from '@ngx-translate/core';
+
 
 @Component({
     selector: 'app-about-section-start',
-    imports: [],
+    imports: [TranslateModule],
     templateUrl: './about-section-start.component.html',
     styleUrl: './about-section-start.component.css'
 })

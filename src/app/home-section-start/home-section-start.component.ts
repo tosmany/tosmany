@@ -1,10 +1,11 @@
 import { Component, Inject, PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
+import { TranslateModule }  from '@ngx-translate/core'
 import Typed from 'typed.js';
 
 @Component({
     selector: 'app-home-section-start',
-    imports: [],
+    imports: [TranslateModule],
     templateUrl: './home-section-start.component.html',
     styleUrl: './home-section-start.component.css'
 })

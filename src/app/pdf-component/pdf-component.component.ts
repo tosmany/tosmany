@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { jsPDF } from 'jspdf';
 import * as jSPDF  from 'jspdf';
 import html2canvas from 'html2canvas';
+import { TranslateModule } from '@ngx-translate/core'
 
 // Definimos las interfaces aquí
 interface UserCoordonnees {
@@ -54,7 +55,7 @@ interface EngagementSocial {
 
 @Component({
     selector: 'app-pdf-component',
-    imports: [CommonModule],
+    imports: [CommonModule, TranslateModule],
     templateUrl: './pdf-component.component.html',
     styleUrls: ['./pdf-component.component.css']
 })
