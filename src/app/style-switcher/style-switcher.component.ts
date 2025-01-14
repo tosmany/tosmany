@@ -25,7 +25,8 @@ export class StyleSwitcherComponent implements AfterViewInit {
   styleSwitcherToggle!: ElementRef;
   isDark:boolean = false;
 
-  translate: TranslateService = inject(TranslateService);
+
+
 
   // Usamos ViewChildren para obtener todas las referencias de los elementos <link> con la clase 'alternate-style'
   @ViewChildren('alternateStyles') alternateStyles!: QueryList<ElementRef>;
@@ -33,12 +34,14 @@ export class StyleSwitcherComponent implements AfterViewInit {
   @ViewChildren('languages') languages!: QueryList<ElementRef>;
   // Usamos ViewChild para obtener la referencia del elemento <div> con la clase 'day-night'
   @ViewChild('dayNight', { static: true }) dayNight!: ElementRef;
-  
+
   constructor(
     private renderer: Renderer2,
-    @Inject(PLATFORM_ID) private platformId: Object
+    @Inject(PLATFORM_ID) private platformId: Object,
+    private translate: TranslateService = inject(TranslateService)
+
   ) {}
-  
+
   ngAfterViewInit(): void {
     // Solo realizamos las operaciones relacionadas con el DOM si estamos en el navegador
     if (isPlatformBrowser(this.platformId)) {
@@ -64,13 +67,13 @@ export class StyleSwitcherComponent implements AfterViewInit {
   }
   /*    ====================   themes colors  =================   */
   setActiveStyle(color: string): void {
-    
+
     const styles = document.querySelectorAll('link.alternate-style');
     styles.forEach((styleElement: Element) => {
       const styleTitle = styleElement.getAttribute('title');
       if (color === styleTitle) {
         this.renderer.removeAttribute(styleElement, 'disabled');
-       
+
       } else {
         this.renderer.setAttribute(styleElement, 'disabled', 'true');
       }
@@ -85,7 +88,7 @@ export class StyleSwitcherComponent implements AfterViewInit {
     // Alternamos la clase 'dark' en el cuerpo
     if (this.isDark) {
       this.renderer.addClass(document.body, 'dark');
-      
+
     } else {
       this.renderer.removeClass(document.body, 'dark');
     }
@@ -99,7 +102,7 @@ export class StyleSwitcherComponent implements AfterViewInit {
     if (this.isDark) {
       this.renderer.removeClass(icon, 'fa-moon');
       this.renderer.addClass(icon, 'fa-sun');
-    
+
     } else {
       this.renderer.removeClass(icon, 'fa-sun');
       this.renderer.addClass(icon, 'fa-moon');
@@ -108,5 +111,6 @@ export class StyleSwitcherComponent implements AfterViewInit {
  /* Set language to show */
  setActiveLanguage(lang: string){
   this.translate.use(lang);
+  console.log(`Idioma cambiado a: ${lang}`);
  }
 }
