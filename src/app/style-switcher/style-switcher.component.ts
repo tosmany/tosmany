@@ -12,6 +12,8 @@ import {
 } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { TranslateService } from '@ngx-translate/core';
+import { TraductorService } from '../traductor.service';
+
 
 @Component({
   selector: 'app-style-switcher',
@@ -34,11 +36,13 @@ export class StyleSwitcherComponent implements AfterViewInit {
   @ViewChildren('languages') languages!: QueryList<ElementRef>;
   // Usamos ViewChild para obtener la referencia del elemento <div> con la clase 'day-night'
   @ViewChild('dayNight', { static: true }) dayNight!: ElementRef;
+  TraductorService: any;
 
   constructor(
     private renderer: Renderer2,
     @Inject(PLATFORM_ID) private platformId: Object,
-    private translate: TranslateService = inject(TranslateService)
+    private translate: TranslateService = inject(TranslateService),
+    private traductorService: TraductorService
 
   ) {}
 
@@ -126,7 +130,7 @@ export class StyleSwitcherComponent implements AfterViewInit {
   }
  /* Set language to show */
  setActiveLanguage(lang: string){
-  this.translate.use(lang);
+  this.traductorService.setLanguage(lang);
   console.log(`Idioma cambiado a: ${lang}`);
  }
 }
