@@ -46,23 +46,31 @@ export class StyleSwitcherComponent implements AfterViewInit {
     // Solo realizamos las operaciones relacionadas con el DOM si estamos en el navegador
     if (isPlatformBrowser(this.platformId)) {
       // Al cargar el componente, verificamos si el tema oscuro está activo
-    this.isDark = document.body.classList.contains('dark');
-    this.updateIcon();
-      // Toggle style switcher
-      this.renderer.listen(
-        this.styleSwitcherToggle.nativeElement,
-        'click',
-        () => {
-          this.styleSwitcher.nativeElement.classList.toggle('open');
-        }
-      );
+      this.isDark = document.body.classList.contains('dark');
 
-      // Hide style switcher on scroll
-      window.addEventListener('scroll', () => {
-        if (this.styleSwitcher.nativeElement.classList.contains('open')) {
-          this.styleSwitcher.nativeElement.classList.remove('open');
-        }
+      this.updateIcon();
+
+      // Configura el color inicial de las letras en función de isDark
+      this.languages.forEach((language) => {
+        const color = this.isDark ? 'var(--text-black-700)' : 'initial';
+        this.renderer.setStyle(language.nativeElement, 'color', color);
       });
+
+        // Toggle style switcher
+        this.renderer.listen(
+          this.styleSwitcherToggle.nativeElement,
+          'click',
+          () => {
+            this.styleSwitcher.nativeElement.classList.toggle('open');
+          }
+        );
+
+        // Hide style switcher on scroll
+        window.addEventListener('scroll', () => {
+          if (this.styleSwitcher.nativeElement.classList.contains('open')) {
+            this.styleSwitcher.nativeElement.classList.remove('open');
+          }
+        });
     }
   }
   /*    ====================   themes colors  =================   */
@@ -92,6 +100,14 @@ export class StyleSwitcherComponent implements AfterViewInit {
     } else {
       this.renderer.removeClass(document.body, 'dark');
     }
+    // Actualizamos los colores de las letras de las clases 'languages'
+    this.languages.forEach((language) => {
+      if (this.isDark) {
+        this.renderer.setStyle(language.nativeElement, 'color', 'var(--text-black-700)');
+      } else {
+        this.renderer.setStyle(language.nativeElement, 'color', 'initial'); // O el color predeterminado
+      }
+    });
 
     // Actualizamos el icono de día/noche
     this.updateIcon();
